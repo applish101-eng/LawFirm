@@ -26,9 +26,9 @@ const Section04 = () => {
   return (
     <section 
       ref={containerRef}
-      className="w-full bg-[#F4F4F4] text-[#111111] font-sans antialiased overflow-hidden py-16 md:py-24"
+      className="w-full min-h-screen flex flex-col justify-center bg-[#F4F4F4] text-[#111111] font-sans antialiased overflow-hidden px-6"
     >
-      <div className="max-w-7xl mx-auto px-6 flex flex-col space-y-12 md:space-y-16">
+      <div className="w-full flex flex-col space-y-12 md:space-y-16">
         
         {/* Full Width Top Header */}
         <h2 

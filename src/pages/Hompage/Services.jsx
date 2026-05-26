@@ -327,7 +327,7 @@ const Services = () => {
           <div className="absolute bottom-2 left-2 right-2 bg-white rounded-md p-4 lg:p-6 flex flex-col lg:flex-row gap-6 lg:items-center lg:justify-between">
             <div>
               <p className="text-black text-2xl lg:text-3xl font-medium">
-                Couldn’t find the legal service you need?
+                Couldn't find the legal service you need?
               </p>
 
               <p className="text-slate-500 text-sm lg:text-base mt-2">

@@ -22,7 +22,7 @@ const ServicesHero = () => {
       tl.fromTo(
         [textLeftRef.current, textRightRef.current],
         { y: 25, opacity: 0 },
-        { y: 0, opacity: 1, 用stagger: 0.15 },
+        { y: 0, opacity: 1, stagger: 0.15 },
       )
         .fromTo(
           lineRef.current,
@@ -50,9 +50,9 @@ const ServicesHero = () => {
   return (
     <section
       ref={containerRef}
-      className="w-full  bg-[#F4F4F4] text-[#111111] font-sans antialiased overflow-hidden pt-32 "
+      className="w-full min-h-screen flex flex-col justify-center bg-[#F4F4F4] text-[#111111] font-sans antialiased overflow-hidden px-6"
     >
-      <div className="max-w-7xl mx-auto px-6 flex flex-col">
+      <div className="w-full flex flex-col">
         {/* Top Header Row split */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16 items-end pb-8">
           {/* Left Side: Category Label & Large Title */}

@@ -5,7 +5,7 @@ import { Send } from "lucide-react";
 const Hero = () => {
   return (
     <>
-      <section className="relative w-full h-175 overflow-hidden">
+      <section className="relative w-full h-screen overflow-hidden">
         {/* ===============================
         BACKGROUND LAYER
       =============================== */}

@@ -3,9 +3,8 @@ import Section03Image from "../../assets/ServiceSection03.png";
 
 const Section03 = () => {
   return (
-    <section className="w-full min-h-screen bg-[#F4F4F4] text-[#111111] font-sans antialiased overflow-x-hidden flex flex-col justify-between">
-      {/* Top Content Area */}
-      <div className="max-w-7xl mx-auto px-6 pt-16 pb-12 md:pt-24 md:pb-20 flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
+    <section className="w-full min-h-screen bg-[#F4F4F4] text-[#111111] font-sans antialiased overflow-x-hidden flex flex-col justify-center px-6">
+      <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start pb-12 lg:pb-20">
         {/* Left Column */}
         <div className="w-full lg:w-[60%] flex flex-col items-start gap-4">
           {/* Badge */}

@@ -8,7 +8,7 @@ const stats = [
 
 const Section02 = () => {
   return (
-    <section className="w-full bg-[#F5F5F5] px-6 sm:px-10 lg:px-20 py-20 lg:py-28">
+    <section className="w-full min-h-screen flex flex-col justify-center bg-[#F5F5F5] px-6">
       {/* Eyebrow */}
       <p className="text-center font-primary text-sm text-black tracking-wide mb-4">
         About Us
