@@ -2,6 +2,7 @@ import React from "react";
 import HeroImage from "../../assets/HeroImage.png";
 import { ArrowRight, SectionIcon } from "lucide-react";
 import { Send } from "lucide-react";
+import Button from "../../components/Button";
 const Hero = () => {
   return (
     <>
@@ -86,19 +87,55 @@ const Hero = () => {
               </div>
 
               {/* CTA */}
-              <div className="flex sm:flex-col items-center gap-2">
-                <button className="flex items-center gap-3 border border-white bg-black/60 text-white text-md sm:text-3xl font-medium pr-2 pl-4 py-2 rounded whitespace-nowrap hover:bg-primary-600 hover:text-black hover:border-black hover:border-2 transition-colors duration-300 cursor-pointer">
-                  <span>Our Story</span>
-
-                  <span className="bg-white/10 text-white p-2 sm:p-4 rounded-sm hover:bg-white/20 transition-colors duration-300">
-                    <ArrowRight className="w-5 h-5 sm:w-7 sm:h-7" />
-                  </span>
-                </button>
-                <button className="w-auto h-full flex items-center gap-2 rounded border border-white px-3 py-2 text-sm font-medium text-white hover:bg-primary-500 hover:text-black transition-colors duration-300 whitespace-nowrap shrink-0 sm:hidden">
+              <div className="flex flex-col gap-4">
+                {/* BOOK CONSULTATION — MOBILE ONLY */}
+                <Button
+                  className="flex justify-between"
+                  width="full"
+                  variant="primary"
+                  size="lg"
+                  responsiveVisibility="sm:hidden"
+                  iconRight={<Send className="w-4 h-4" />}
+                >
                   Book a Consultation
-                  <Send className="w-4 h-4" />
-                </button>
+                </Button>
 
+                {/* OUR STORY */}
+                <Button
+                  width="full"
+                  variant="secondary"
+                  size="xl"
+                  className="
+      flex
+     
+
+      sm:bg-white/10
+      sm:text-white
+      sm:border-white/20
+
+      bg-primary-500
+      text-black
+
+      hover:bg-primary-600
+      sm:hover:bg-white/20
+    "
+                  iconRight={
+                    <ArrowRight className="flex item-center justify-items-center w-5 h-5 sm:w-7 sm:h-7" />
+                  }
+                  iconRightClassName="
+      bg-white/10
+      text-white
+      p-2
+      sm:p-4
+      rounded-sm
+      transition-colors
+      duration-300
+    "
+                >
+                  Our Story
+                </Button>
+
+                {/* TEXT */}
                 <p className="text-white/80 text-md hidden sm:block font-light font-secondary">
                   With 15+ years of excellence
                 </p>

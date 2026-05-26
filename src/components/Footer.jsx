@@ -252,7 +252,7 @@ Message: ${message}
             </div>
           </form>
         </div>
-        <div className="relative w-full mt-80 lg:mt-10 min-h-[300px] bg-primary-700 border-t rounded-t-lg flex flex-col items-center justify-center">
+        <div className="relative w-full mt-20 lg:mt-0 pt-20 bg-primary-700 border-t rounded-t-lg flex flex-col items-center justify-center">
           <img
             src={LogoHead}
             alt="logo"

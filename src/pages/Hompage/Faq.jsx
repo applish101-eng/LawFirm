@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import Button from "../../components/Button";
 
+// ==========================================
+// FAQ CONTENT DATA ARRAY
+// ==========================================
 const faqData = [
   {
     question: "What should I consider when choosing a law firm in Nepal?",
@@ -19,8 +22,7 @@ const faqData = [
       "We serve clients across a range of industries including real estate, finance, healthcare, technology, hospitality, manufacturing, and non-profit organizations.",
   },
   {
-    question:
-      "Do you work with international clients and foreign companies?",
+    question: "Do you work with international clients and foreign companies?",
     answer:
       "Yes, we welcome international clients and foreign companies seeking legal guidance in Nepal. We provide support for investment approvals, regulatory compliance, and cross-border legal matters.",
   },
@@ -44,80 +46,105 @@ const Faq = () => {
   };
 
   return (
-    <section className="relative w-full min-h-screen flex flex-col justify-center bg-[#F5F5F5] px-6 overflow-hidden">
-      <div className="w-full flex flex-col gap-4">
-        <h1 className="text-lg lg:text-xl font-primary text-black text-center lg:text-left">
+    <section className="relative w-full h-screen max-h-screen flex flex-col bg-[#F5F5F5] px-6 py-12 lg:py-20 overflow-hidden select-none ">
+      {/* Structural layout wrapper matching standard project bounds */}
+      <div className="w-full max-w-7xl mx-auto flex flex-col h-full gap-6 lg:gap-10">
+        {/* SUBHEADER TAG */}
+        <h1 className="text-sm lg:text-base font-primary text-black uppercase tracking-wider font-semibold text-center lg:text-left shrink-0">
           Frequently Asked Questions
         </h1>
 
-        <div className="flex flex-col lg:flex-row gap-10 lg:gap-20 mt-6">
-          <div className="flex flex-col justify-between lg:w-[40%] gap-10">
+        {/* MAIN SPLIT GRID CONTAINER */}
+        <div className="grid grid-cols-1 lg:grid-cols-[42%_1fr] gap-10 lg:gap-16 flex-1 min-h-0 w-full">
+          {/* ======================================================
+              LEFT COLUMN: HERO TEXT & DESKTOP CALL-TO-ACTION
+          ====================================================== */}
+          <div className="flex flex-col justify-between h-full gap-8 lg:pb-4 shrink-0">
             <div className="flex flex-col gap-4">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl text-center lg:text-left font-medium leading-tight">
+              <h2 className="text-2xl sm:text-4xl lg:text-5xl text-center lg:text-left font-secondary font-medium text-black leading-tight tracking-tight">
                 Questions we frequently receive from clients & businesses
               </h2>
 
-              <p className="text-sm sm:text-base text-center lg:text-left text-black/70 leading-relaxed">
+              <p className="text-sm sm:text-base text-center lg:text-left text-black/70 leading-relaxed max-w-xl mx-auto lg:mx-0">
                 We've answered some of the most common questions about our
                 services, approach, and areas of practice to help you better
-                understand how we work. If you still have a question that
-                isn't covered here, feel free to reach out to our team we're
-                here to help.
+                understand how we work. If you still have a question that isn't
+                covered here, feel free to reach out to our team.
               </p>
             </div>
 
-            <div className="hidden lg:flex flex-col gap-4">
+            {/* CTA Option: Shows on large viewports */}
+            <div className="hidden lg:flex flex-col gap-5 items-start">
               <div>
-                <h1 className="text-2xl font-medium">
+                <h3 className="text-xl lg:text-2xl font-medium text-black">
                   Need more information?
-                </h1>
-                <p className="text-black/70">
-                  Get in touch with our legal team.
+                </h3>
+                <p className="text-black/60 text-sm mt-1">
+                  Get in touch with our expert legal team today.
                 </p>
               </div>
 
               <Button
                 variant="primary"
                 size="lg"
-                iconRight={<ArrowRight className="w-5 h-5 sm:w-7 sm:h-7" />}
+                iconRight={<ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />}
               >
                 Talk to Our Team
               </Button>
             </div>
           </div>
 
-          <div className="flex flex-col gap-4 lg:w-[60%]">
+          {/* ======================================================
+              RIGHT COLUMN: SCROLLABLE ACCORDION SHELF
+          ====================================================== */}
+          <div className="flex flex-col gap-4 overflow-y-auto pr-1 lg:pr-3 h-full custom-scrollbar min-h-0 pb-6">
             {faqData.map((item, index) => {
               const isOpen = openIndex === index;
 
               return (
                 <div
                   key={index}
-                  className="bg-white p-4 sm:p-6 rounded-xl shadow-sm"
+                  className={`bg-white p-5 sm:p-6 rounded-xl border border-transparent transition-all duration-300 ${
+                    isOpen
+                      ? "shadow-md border-black/5"
+                      : "shadow-sm hover:border-black/10"
+                  }`}
                 >
+                  {/* ACCORDION TRIGGER */}
                   <button
                     onClick={() => toggle(index)}
-                    className="w-full flex items-start justify-between gap-4 text-left"
+                    className="w-full flex items-center justify-between gap-4 text-left group"
                   >
-                    <h2 className="text-sm sm:text-base lg:text-xl font-medium leading-snug pr-4 flex-1">
+                    <h2
+                      className={`text-sm sm:text-md lg:text-lg font-secondary font-medium leading-snug pr-2 flex-1 transition-colors duration-200 ${
+                        isOpen
+                          ? "text-black"
+                          : "text-black/90 group-hover:text-black"
+                      }`}
+                    >
                       {item.question}
                     </h2>
 
                     <div
-                      className={`border flex items-center justify-center rounded-sm p-2 shrink-0 transition-transform duration-300 ${
-                        isOpen ? "rotate-180" : ""
+                      className={`border border-slate-200 flex items-center justify-center rounded-full p-2 shrink-0 transition-all duration-300 ${
+                        isOpen
+                          ? "rotate-180 bg-black border-black text-white"
+                          : "bg-transparent text-black"
                       }`}
                     >
-                      <ChevronDown />
+                      <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5" />
                     </div>
                   </button>
 
+                  {/* ACCORDION TEXT EXPANSION WINDOW */}
                   <div
                     className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                      isOpen ? "max-h-96 opacity-100 mt-3" : "max-h-0 opacity-0"
+                      isOpen
+                        ? "max-h-[300px] opacity-100 mt-4"
+                        : "max-h-0 opacity-0"
                     }`}
                   >
-                    <p className="text-sm lg:text-base text-black/70 leading-relaxed">
+                    <p className="text-xs sm:text-sm lg:text-base text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
                       {item.answer}
                     </p>
                   </div>
@@ -125,12 +152,13 @@ const Faq = () => {
               );
             })}
 
-            <div className="lg:hidden flex flex-col gap-4 pt-4">
+            {/* CTA Option fallback: Shows on mobile viewports below items */}
+            <div className="lg:hidden flex flex-col gap-4 pt-6 border-t border-black/10 mt-2">
               <div>
-                <h1 className="text-2xl font-medium">
+                <h1 className="text-xl font-medium text-black">
                   Need more information?
                 </h1>
-                <p className="text-black/70">
+                <p className="text-black/60 text-sm mt-1">
                   Get in touch with our legal team.
                 </p>
               </div>
@@ -138,15 +166,32 @@ const Faq = () => {
               <Button
                 variant="secondary"
                 size="lg"
-                width="lg"
-                iconRight={<ArrowRight className="w-5 h-5 sm:w-7 sm:h-7" />}
+                iconRight={<ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />}
               >
-                Our Story
+                Talk to Our Team
               </Button>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Optional global micro-styling layer inject to hide scrollbar rails cleanly */}
+      <style>{`
+        .custom-scrollbar::-webkit-scrollbar {
+          width: 5px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: rgba(0, 0, 0, 0.1);
+          border-radius: 99px;
+        }
+        .custom-scrollbar {
+          scrollbar-width: thin;
+          scrollbar-color: rgba(0, 0, 0, 0.1) transparent;
+        }
+      `}</style>
     </section>
   );
 };

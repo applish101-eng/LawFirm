@@ -2,12 +2,14 @@
 
 @import "tailwindcss";
 
-@theme {
+/* ✅ IMPORTANT: use inline so Tailwind generates utilities */
+@theme inline {
   --font-primary: "Playfair Display", serif;
   --font-secondary: "Plus Jakarta Sans", sans-serif;
 
   --breakpoint-3xl: 120rem;
 
+  /* PRIMARY COLOR SYSTEM */
   --color-primary-500: oklch(0.8301 0.069 86.57);
   --color-primary-600: oklch(0.7552 0.069 86.57);
   --color-primary-700: oklch(0.2635 0.0291 86.8);
@@ -15,6 +17,8 @@
   --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
   --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
 }
+
+/* cursor rules */
 @media (pointer: fine) {
   body {
     cursor: none;

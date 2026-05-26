@@ -7,18 +7,27 @@ const Button = ({
   width = "fit",
   iconRight,
   iconLeft,
+  iconRightClassName = "",
+  iconLeftClassName = "",
+  responsiveVisibility = "",
   className = "",
   ...props
 }) => {
+  // REMOVED justify-center
   const base =
-    "inline-flex items-center justify-center gap-3 font-medium rounded transition-all duration-300 cursor-pointer whitespace-nowrap font-secondary ";
+    "inline-flex items-center gap-3 font-medium rounded transition-all duration-300 cursor-pointer whitespace-nowrap font-secondary";
 
   const variants = {
-    primary: "bg-primary-500 text-black hover:bg-primary-600 ",
+    primary:
+      "bg-primary-500 text-black hover:bg-primary-600 border border-transparent",
+
     secondary:
-      "bg-white/10 backdrop-blur border-2 border-white/20 text-white shadow-md hover:bg-neutral-900 hover:shadow-lg",
+      "bg-white/10 backdrop-blur border border-white/20 text-white shadow-md hover:bg-neutral-900 hover:shadow-lg",
+
     outline: "border border-black text-black hover:bg-black hover:text-white",
+
     ghost: "bg-transparent text-black hover:text-neutral-600",
+
     danger: "bg-red-500 text-white hover:bg-red-600",
   };
 
@@ -26,7 +35,7 @@ const Button = ({
     sm: "text-sm px-3 py-2",
     md: "text-base px-4 py-2",
     lg: "text-lg sm:text-2xl font-extrabold px-5 py-3",
-    xl: "text-lg sm:text-2xl font-extrabold px-5 py-5",
+    xl: "text-lg sm:text-2xl font-extrabold px-3 py-3",
   };
 
   const widths = {
@@ -40,15 +49,37 @@ const Button = ({
 
   return (
     <button
-      className={`${base} ${variants[variant]} ${sizes[size]} ${widths[width]} ${className}`}
+      className={`
+        ${base}
+        ${variants[variant]}
+        ${sizes[size]}
+        ${widths[width]}
+        ${responsiveVisibility}
+        ${className}
+      `}
       {...props}
     >
-      {iconLeft && <span className="flex items-center">{iconLeft}</span>}
+      {iconLeft && (
+        <span className={`flex items-center ${iconLeftClassName}`}>
+          {iconLeft}
+        </span>
+      )}
 
       <span>{children}</span>
 
       {iconRight && (
-        <span className="bg-black text-white p-2 rounded-sm flex items-center justify-center">
+        <span
+          className={`
+           bg-black
+            text-white
+            p-2
+            rounded-sm
+            flex
+            items-center
+            justify-center
+            ${iconRightClassName}
+          `}
+        >
           {iconRight}
         </span>
       )}
