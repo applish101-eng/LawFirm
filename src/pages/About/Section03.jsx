@@ -1,0 +1,51 @@
+import React from "react";
+import Section03Image from "../../assets/ServiceSection03.png";
+
+const Section03 = () => {
+  return (
+    <section className="w-full min-h-screen bg-[#F4F4F4] text-[#111111] font-sans antialiased overflow-x-hidden flex flex-col justify-between">
+      {/* Top Content Area */}
+      <div className="max-w-7xl mx-auto px-6 pt-16 pb-12 md:pt-24 md:pb-20 flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
+        {/* Left Column */}
+        <div className="w-full lg:w-[60%] flex flex-col items-start gap-4">
+          {/* Badge */}
+          <div className="flex items-center gap-2 bg-white px-3 py-1.5 rounded-sm border border-neutral-300 shadow-sm text-xs md:text-sm font-medium tracking-wide">
+            <span>Professionalism with Purpose</span>
+          </div>
+
+          {/* Heading */}
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight leading-[1.15] text-balance">
+            The Foundation of Trust Behind Our Legal Practice
+          </h1>
+        </div>
+
+        {/* Right Column */}
+        <div className="w-full lg:w-[40%] flex flex-col gap-4 text-sm md:text-base text-black leading-relaxed">
+          <p>
+            We believe legal guidance should feel clear, practical, and
+            approachable rather than overwhelming or difficult to understand.
+            Every matter deserves careful attention, honest communication, and
+            reliable legal support built on trust.
+          </p>
+
+          <p>
+            Through research, professional integrity, and a client-focused
+            approach, we support individuals and businesses with dependable,
+            responsible, and genuinely human guidance.
+          </p>
+        </div>
+      </div>
+
+      {/* Image */}
+      <div className="w-full flex-grow relative min-h-[350px] md:min-h-[500px] overflow-hidden">
+        <img
+          src={Section03Image}
+          alt="Legal Practice"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        />
+      </div>
+    </section>
+  );
+};
+
+export default Section03;
