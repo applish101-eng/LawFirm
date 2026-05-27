@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ArrowRight, ChevronDown } from "lucide-react";
+import SEO from "../../components/SEO";
 import Button from "../../components/Button";
 import PageSection from "../../components/PageSection";
 import Container from "../../components/Container";
@@ -48,7 +49,13 @@ const Faq = () => {
   };
 
   return (
-    <PageSection variant="large" className="relative bg-[#F5F5F5] select-none">
+    <>
+      <SEO
+        title="Frequently Asked Questions | Liberty Legal Service Nepal | Advocate Meera Maharjan"
+        description="Find answers to common legal questions in Nepal. Learn about divorce, company registration, property disputes, and more from Advocate Meera Maharjan."
+        canonical="https://libertylegalnepal.com/faq"
+      />
+      <PageSection variant="large" className="relative bg-[#F5F5F5] select-none">
       <Container className="flex flex-col gap-6 lg:gap-10">
         {/* SUBHEADER TAG */}
         <h1 className="text-sm lg:text-base font-primary text-black uppercase tracking-wider font-semibold text-center lg:text-left shrink-0">
@@ -190,6 +197,7 @@ const Faq = () => {
         </div>
       </Container>
     </PageSection>
+    </>
   );
 };
 

@@ -60,7 +60,7 @@ const Navbar = () => {
         {/* Mobile Header Inside Overlay */}
         <div className="flex items-center justify-between p-4 w-full">
           <Link to="/" onClick={() => setMenuOpen(false)}>
-            <img src={logowhite} alt="logo" className="h-8" />
+            <img src={logowhite} alt="Liberty Legal Service Advocate Meera Maharjan logo" className="h-8" />
           </Link>
 
           <button onClick={() => setMenuOpen(false)} className="text-white p-2">
@@ -122,7 +122,7 @@ const Navbar = () => {
           <Link to="/" className="shrink-0">
             <img
               src={logowhite}
-              alt="logo"
+              alt="Liberty Legal Service Advocate Meera Maharjan logo"
               className="cursor-pointer h-8 sm:h-10"
             />
           </Link>

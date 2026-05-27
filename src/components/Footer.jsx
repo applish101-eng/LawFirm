@@ -131,11 +131,11 @@ Message: ${message}
               </p>
             </div>
 
-            <img
-              src={QRphone}
-              alt="QR Code"
-              className="w-25 h-20 sm:h-35 sm:w-35 bg-white border rounded-md"
-            />
+          <img
+            src={FooterImage}
+            alt="Liberty Legal Service law firm Kathmandu Nepal"
+            className="w-full h-full object-cover rounded-sm"
+          />
           </div>
 
           <p className="text-slate-400 text-sm sm:text-3xl font-light sm:hidden">
@@ -255,7 +255,7 @@ Message: ${message}
         <div className="relative w-full mt-60  bg-primary-700 border-t rounded-t-lg flex flex-col items-center justify-center">
           <img
             src={LogoHead}
-            alt="logo"
+            alt="Liberty Legal Service & Research Center logo Advocate Meera Maharjan"
             className="absolute -top-10 h-24 w-auto lg:h-36 lg:-top-20 object-contain"
           />
           <div className="w-full h-full py-10 block sm:hidden">
@@ -346,10 +346,10 @@ Message: ${message}
               </div>
               <div className="p-6 flex flex-col col-span-2 items-center gap-2">
                 <p className="font-primary text-4xl text-white text-center">
-                  Liberty Legal Service & <br /> Research Center, 2011
+                  Liberty Legal Service & <br /> Research Center
                 </p>
                 <p className="text-white text-sm lg:text-2xl italic text-center font-primary">
-                  Justice open for everyone
+                  Advocate Meera Maharjan — Justice open for everyone
                 </p>
                 <div className="w-full flex flex-col lg:flex-row items-center justify-center gap-4 mt-6">
                   <button

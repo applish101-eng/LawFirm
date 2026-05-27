@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { MapPin, Phone, Mail } from "lucide-react";
+import SEO from "../components/SEO";
 import Footer from "../components/Footer";
 import PageSection from "../components/PageSection";
 import Container from "../components/Container";
@@ -36,11 +37,17 @@ const Contact = () => {
   }, []);
 
   return (
-    <PageSection
-      ref={containerRef}
-      variant="large"
-      className="bg-[#F4F4F4] text-[#111111]"
-    >
+    <>
+      <SEO
+        title="Contact Liberty Legal | Law Firm in Kathmandu, Nepal | Advocate Meera Maharjan"
+        description="Get in touch with Advocate Meera Maharjan at Liberty Legal Service & Research Center in Lalitpur, Nepal. Reach us by phone or email."
+        canonical="https://libertylegalnepal.com/contact"
+      />
+      <PageSection
+        ref={containerRef}
+        variant="large"
+        className="bg-[#F4F4F4] text-[#111111]"
+      >
       <Container className="flex flex-col space-y-10 md:space-y-12">
         {/* Category Label and Main Heading */}
         <div ref={titleRef} className="flex flex-col space-y-1">
@@ -122,6 +129,7 @@ const Contact = () => {
         </div>
       </Container>
     </PageSection>
+    </>
   );
 };
 

@@ -35,7 +35,7 @@ const Section01 = () => {
 
       <img
         src={Section01Service}
-        alt=""
+        alt="Advocate Meera Maharjan Liberty Legal Service law office Kathmandu Nepal"
         className="w-full h-full mt-12 lg:object-cover"
       />
     </PageSection>

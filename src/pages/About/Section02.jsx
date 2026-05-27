@@ -19,8 +19,8 @@ const Section02 = () => {
 
         {/* Statement */}
         <h2 className="font-secondary font-medium text-center text-black leading-[1.1] tracking-tight text-2xl lg:text-5xl max-w-6xl">
-          We are experienced legal professionals providing clear and practical
-          legal guidance built on research integrity and trust
+          Under the leadership of Advocate Meera Maharjan, we provide clear and
+          practical legal guidance built on research integrity and trust
         </h2>
 
         {/* Stats */}

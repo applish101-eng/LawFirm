@@ -273,7 +273,7 @@ const Services = () => {
         <div className="relative rounded-md overflow-hidden min-h-[450px] lg:min-h-[500px] shadow-sm">
           <img
             src={ServicesImage}
-            alt="Services"
+            alt="Legal services Kathmandu Nepal Advocate Meera Maharjan Liberty Legal"
             className="w-full h-full object-cover"
           />
 

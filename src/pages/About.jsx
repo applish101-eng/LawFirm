@@ -1,13 +1,20 @@
 import React from "react";
+import SEO from "../components/SEO";
 import Section01 from "./About/Section01";
 import Section02 from "./About/Section02";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Section03 from "./About/Section03";
 import Section04 from "./About/Section04";
+
 const About = () => {
   return (
     <div className="w-full h-full ">
+      <SEO
+        title="Advocate Meera Maharjan | About Liberty Legal Service & Research Center Nepal"
+        description="Learn about Advocate Meera Maharjan and Liberty Legal Service & Research Center based in Kathmandu, Nepal. Expert legal counsel with years of experience."
+        canonical="https://libertylegalnepal.com/about"
+      />
       <Navbar />
       <Section01 />
       <Section02 />

@@ -12,11 +12,11 @@ const Hero = () => {
         {/* ===============================
         BACKGROUND LAYER
       =============================== */}
-        <img
-          src={HeroImage}
-          alt="Hero Background"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+          <img
+            src={HeroImage}
+            alt="Advocate Meera Maharjan Liberty Legal Service law firm Kathmandu Nepal"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
 
         {/* ===============================
         GRADIENT OVERLAY LAYER
@@ -35,9 +35,10 @@ const Hero = () => {
         =========================== */}
           <div className="sm:flex justify-end hidden">
             <p className="max-w-md text-right text-white text-sm font-light font-secondary leading-relaxed">
-              Liberty Legal Service and Research Center provides experienced
-              legal counsel, strategic advocacy, and research driven solutions
-              for individuals, communities, and organizations across Nepal.
+              Led by Advocate Meera Maharjan, Liberty Legal Service & Research
+              Center provides experienced legal counsel, strategic advocacy, and
+              research driven solutions for individuals, communities, and
+              organizations across Nepal.
             </p>
           </div>
 
@@ -77,14 +78,14 @@ const Hero = () => {
               {/* HEADING */}
               <div className="flex flex-col gap-2">
                 <h1 className="max-w-4xl sm:text-5xl text-2xl  font-normal text-white leading-tight font-secondary ">
-                  Trusted legal guidance for <br></br> the matters that matter
-                  most.
+                  Trusted legal guidance in Kathmandu for <br></br> the matters
+                  that matter most.
                 </h1>
                 <p className="max-w-md  text-white text-[12px] font-light font-secondary leading-relaxed sm:hidden">
-                  Liberty Legal Service and Research Center provides experienced
-                  legal counsel, strategic advocacy, and research driven
-                  solutions for individuals, communities, and organizations
-                  across Nepal.
+                  Led by Advocate Meera Maharjan, Liberty Legal Service &
+                  Research Center provides experienced legal counsel, strategic
+                  advocacy, and research driven solutions for individuals,
+                  communities, and organizations across Nepal.
                 </p>
               </div>
 
@@ -147,7 +148,8 @@ const Hero = () => {
 
                 {/* TEXT */}
                 <p className="text-white/80 text-md hidden sm:block font-light font-secondary">
-                  With 15+ years of excellence
+                  Advocate Meera Maharjan — 15+ years of legal excellence in
+                  Nepal
                 </p>
               </div>
             </div>

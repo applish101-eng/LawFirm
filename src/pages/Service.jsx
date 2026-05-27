@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ArrowDown } from "lucide-react";
+import SEO from "../components/SEO";
 import Services from "./Hompage/Services";
 import Footer from "../components/Footer";
 import PageSection from "../components/PageSection";
@@ -50,11 +51,17 @@ const ServicesHero = () => {
   }, []);
 
   return (
-    <PageSection
-      ref={containerRef}
-      variant="large"
-      className="bg-[#F4F4F4] text-[#111111]"
-    >
+    <>
+      <SEO
+        title="Legal Services Nepal | Corporate & Civil Law | Advocate Meera Maharjan"
+        description="Full-service legal firm in Kathmandu, Nepal led by Advocate Meera Maharjan. Corporate law, civil litigation, criminal defense, property disputes, and more."
+        canonical="https://libertylegalnepal.com/service"
+      />
+      <PageSection
+        ref={containerRef}
+        variant="large"
+        className="bg-[#F4F4F4] text-[#111111]"
+      >
       <Container className="flex flex-col">
         {/* Top Header Row split */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16 items-end pb-8">
@@ -107,10 +114,12 @@ const ServicesHero = () => {
         ref={imageContainerRef}
         className="w-full h-[380px] md:h-[540px] overflow-hidden rounded-xs shadow-xs"
       >
-        <img src={ImageService} alt="" className="w-full h-full object-cover" />
+        <img src={ImageService} alt="Legal services Kathmandu Nepal Advocate Meera Maharjan Liberty Legal" className="w-full h-full object-cover" />
       </div>
       <Services />
+      <Footer />
     </PageSection>
+    </>
   );
 };
 
