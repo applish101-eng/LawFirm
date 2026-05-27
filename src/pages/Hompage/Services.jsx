@@ -291,6 +291,13 @@ const Services = () => {
               variant="primary"
               size="lg"
               iconRight={<ArrowRight className="w-5 h-5 sm:w-7 sm:h-7" />}
+              onClick={() => {
+                const el = document.getElementById('forum');
+                if (el) {
+                  if (window.lenis) window.lenis.scrollTo(el, { offset: -80 });
+                  else el.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
             >
               Talk to Our Team
             </Button>

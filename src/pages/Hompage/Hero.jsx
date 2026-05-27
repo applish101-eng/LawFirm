@@ -2,8 +2,10 @@ import React from "react";
 import HeroImage from "../../assets/HeroImage.png";
 import { ArrowRight, SectionIcon } from "lucide-react";
 import { Send } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import Button from "../../components/Button";
 const Hero = () => {
+  const navigate = useNavigate();
   return (
     <>
       <section className="relative w-full h-screen overflow-hidden">
@@ -96,6 +98,13 @@ const Hero = () => {
                   size="lg"
                   responsiveVisibility="sm:hidden"
                   iconRight={<Send className="w-4 h-4" />}
+                  onClick={() => {
+                    const el = document.getElementById('forum');
+                    if (el) {
+                      if (window.lenis) window.lenis.scrollTo(el, { offset: -80 });
+                      else el.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
                 >
                   Book a Consultation
                 </Button>
@@ -108,7 +117,7 @@ const Hero = () => {
                   className="
       flex
      
-
+ 
       sm:bg-white/10
       sm:text-white
       sm:border-white/20
@@ -131,6 +140,7 @@ const Hero = () => {
       transition-colors
       duration-300
     "
+                  onClick={() => navigate("/about")}
                 >
                   Our Story
                 </Button>

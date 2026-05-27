@@ -89,6 +89,13 @@ const Faq = () => {
                 variant="primary"
                 size="lg"
                 iconRight={<ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />}
+                onClick={() => {
+                  const el = document.getElementById('forum');
+                  if (el) {
+                    if (window.lenis) window.lenis.scrollTo(el, { offset: -80 });
+                    else el.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
               >
                 Talk to Our Team
               </Button>
@@ -168,6 +175,13 @@ const Faq = () => {
                 variant="secondary"
                 size="lg"
                 iconRight={<ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />}
+                onClick={() => {
+                  const el = document.getElementById('forum');
+                  if (el) {
+                    if (window.lenis) window.lenis.scrollTo(el, { offset: -80 });
+                    else el.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
               >
                 Talk to Our Team
               </Button>

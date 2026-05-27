@@ -15,8 +15,9 @@ function App() {
     const lenis = new Lenis({
       duration: 2,
       smoothWheel: true,
-      smoothTouch: false, // important: avoids weird mobile issues
+      smoothTouch: false,
     });
+    window.lenis = lenis;
 
     function raf(time) {
       lenis.raf(time);
@@ -25,6 +26,7 @@ function App() {
 
     requestAnimationFrame(raf);
     return () => {
+      window.lenis = null;
       lenis.destroy();
     };
   }, []);

@@ -113,7 +113,7 @@ Message: ${message}
 
   return (
     <>
-      <section className="w-full bg-black">
+      <section id="forum" className="w-full bg-black">
         {/* FORM SECTION */}
         <div
           id="consultation-form"
@@ -352,10 +352,22 @@ Message: ${message}
                   Justice open for everyone
                 </p>
                 <div className="w-full flex flex-col lg:flex-row items-center justify-center gap-4 mt-6">
-                  <button className="w-auto flex items-center justify-center gap-2 text-2xl rounded border bg-primary-500 px-6 py-4 font-secondary font-medium text-black hover:bg-primary-500 hover:text-black transition-colors duration-300 whitespace-nowrap shrink-0">
+                  <button
+                    className="w-auto flex items-center justify-center gap-2 text-2xl rounded border bg-primary-500 px-6 py-4 font-secondary font-medium text-black hover:bg-primary-500 hover:text-black transition-colors duration-300 whitespace-nowrap shrink-0"
+                    onClick={() => {
+                      const el = document.getElementById('forum');
+                      if (el) {
+                        if (window.lenis) window.lenis.scrollTo(el, { offset: -80 });
+                        else el.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
+                  >
                     Book a Consultation
                   </button>
-                  <button className="w-auto flex items-center justify-between gap-6 text-2xl border-white border-1 py-2 pl-3 pr-2 font-secondary text-white font-medium rounded hover:bg-primary-600 transition-colors duration-300 cursor-pointer">
+                  <button
+                    className="w-auto flex items-center justify-between gap-6 text-2xl border-white border-1 py-2 pl-3 pr-2 font-secondary text-white font-medium rounded hover:bg-primary-600 transition-colors duration-300 cursor-pointer"
+                    onClick={() => window.location.href = '/about'}
+                  >
                     <span>Our Story</span>
                     <span className="bg-white text-black p-3 rounded-sm">
                       <ArrowRight className="w-6 h-6" />

@@ -96,7 +96,14 @@ const Navbar = () => {
 
           <button
             className="flex items-center gap-2 rounded border bg-primary-500 px-6 py-3 text-lg font-medium text-black whitespace-nowrap mt-4"
-            onClick={() => setMenuOpen(false)}
+            onClick={() => {
+              setMenuOpen(false);
+              const el = document.getElementById('forum');
+              if (el) {
+                if (window.lenis) window.lenis.scrollTo(el, { offset: -80 });
+                else el.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
           >
             Book a Consultation
             <Send className="w-5 h-5" />
@@ -152,7 +159,16 @@ const Navbar = () => {
             </Link>
 
             {/* CTA BUTTON */}
-            <button className="flex items-center gap-2 rounded border bg-primary-500 px-3 py-2 text-sm font-medium text-black hover:bg-primary-500 hover:text-black transition-colors duration-300 whitespace-nowrap shrink-0">
+            <button
+              className="flex items-center gap-2 rounded border bg-primary-500 px-3 py-2 text-sm font-medium text-black hover:bg-primary-500 hover:text-black transition-colors duration-300 whitespace-nowrap shrink-0"
+              onClick={() => {
+                const el = document.getElementById('forum');
+                if (el) {
+                  if (window.lenis) window.lenis.scrollTo(el, { offset: -80 });
+                  else el.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+            >
               Book a Consultation
               <Send className="w-4 h-4" />
             </button>
