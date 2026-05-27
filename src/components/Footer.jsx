@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import FooterImage from "../assets/FooterImage.png";
+
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import LogoHead from "../assets/HeadLogo.svg";
@@ -130,12 +130,6 @@ Message: ${message}
                 or message with our team.
               </p>
             </div>
-
-          <img
-            src={FooterImage}
-            alt="Liberty Legal Service law firm Kathmandu Nepal"
-            className="w-full h-full object-cover rounded-sm"
-          />
           </div>
 
           <p className="text-slate-400 text-sm sm:text-3xl font-light sm:hidden">
@@ -355,10 +349,11 @@ Message: ${message}
                   <button
                     className="w-auto flex items-center justify-center gap-2 text-2xl rounded border bg-primary-500 px-6 py-4 font-secondary font-medium text-black hover:bg-primary-500 hover:text-black transition-colors duration-300 whitespace-nowrap shrink-0"
                     onClick={() => {
-                      const el = document.getElementById('forum');
+                      const el = document.getElementById("forum");
                       if (el) {
-                        if (window.lenis) window.lenis.scrollTo(el, { offset: -80 });
-                        else el.scrollIntoView({ behavior: 'smooth' });
+                        if (window.lenis)
+                          window.lenis.scrollTo(el, { offset: -80 });
+                        else el.scrollIntoView({ behavior: "smooth" });
                       }
                     }}
                   >
@@ -366,7 +361,7 @@ Message: ${message}
                   </button>
                   <button
                     className="w-auto flex items-center justify-between gap-6 text-2xl border-white border-1 py-2 pl-3 pr-2 font-secondary text-white font-medium rounded hover:bg-primary-600 transition-colors duration-300 cursor-pointer"
-                    onClick={() => window.location.href = '/about'}
+                    onClick={() => (window.location.href = "/about")}
                   >
                     <span>Our Story</span>
                     <span className="bg-white text-black p-3 rounded-sm">
