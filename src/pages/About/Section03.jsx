@@ -1,10 +1,12 @@
 import React from "react";
 import Section03Image from "../../assets/ServiceSection03.png";
+import PageSection from "../../components/PageSection";
+import Container from "../../components/Container";
 
 const Section03 = () => {
   return (
-    <section className="w-full min-h-screen bg-[#F4F4F4] text-[#111111] font-sans antialiased overflow-x-hidden flex flex-col justify-center px-6">
-      <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start pb-12 lg:pb-20">
+    <PageSection variant="large" className="bg-[#F4F4F4] text-[#111111]">
+      <Container className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start pb-12 lg:pb-20">
         {/* Left Column */}
         <div className="w-full lg:w-[60%] flex flex-col items-start gap-4">
           {/* Badge */}
@@ -33,17 +35,17 @@ const Section03 = () => {
             responsible, and genuinely human guidance.
           </p>
         </div>
-      </div>
+      </Container>
 
       {/* Image */}
-      <div className="w-full flex-grow relative min-h-[350px] md:min-h-[500px] overflow-hidden">
+      <div className="w-full relative min-h-[350px] md:min-h-[500px] overflow-hidden">
         <img
           src={Section03Image}
           alt="Legal Practice"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
       </div>
-    </section>
+    </PageSection>
   );
 };
 

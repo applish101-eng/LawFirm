@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import Button from "../../components/Button";
+import PageSection from "../../components/PageSection";
+import Container from "../../components/Container";
 
 // ==========================================
 // FAQ CONTENT DATA ARRAY
@@ -46,20 +48,19 @@ const Faq = () => {
   };
 
   return (
-    <section className="relative w-full h-screen max-h-screen flex flex-col bg-[#F5F5F5] px-6 py-12 lg:py-20 overflow-hidden select-none ">
-      {/* Structural layout wrapper matching standard project bounds */}
-      <div className="w-full max-w-7xl mx-auto flex flex-col h-full gap-6 lg:gap-10">
+    <PageSection variant="large" className="relative bg-[#F5F5F5] select-none">
+      <Container className="flex flex-col gap-6 lg:gap-10">
         {/* SUBHEADER TAG */}
         <h1 className="text-sm lg:text-base font-primary text-black uppercase tracking-wider font-semibold text-center lg:text-left shrink-0">
           Frequently Asked Questions
         </h1>
 
         {/* MAIN SPLIT GRID CONTAINER */}
-        <div className="grid grid-cols-1 lg:grid-cols-[42%_1fr] gap-10 lg:gap-16 flex-1 min-h-0 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-[42%_1fr] gap-10 lg:gap-16 w-full">
           {/* ======================================================
               LEFT COLUMN: HERO TEXT & DESKTOP CALL-TO-ACTION
           ====================================================== */}
-          <div className="flex flex-col justify-between h-full gap-8 lg:pb-4 shrink-0">
+          <div className="flex flex-col justify-between gap-8 lg:pb-4 shrink-0">
             <div className="flex flex-col gap-4">
               <h2 className="text-2xl sm:text-4xl lg:text-5xl text-center lg:text-left font-secondary font-medium text-black leading-tight tracking-tight">
                 Questions we frequently receive from clients & businesses
@@ -95,9 +96,9 @@ const Faq = () => {
           </div>
 
           {/* ======================================================
-              RIGHT COLUMN: SCROLLABLE ACCORDION SHELF
+              RIGHT COLUMN: ACCORDION LIST
           ====================================================== */}
-          <div className="flex flex-col gap-4 overflow-y-auto pr-1 lg:pr-3 h-full custom-scrollbar min-h-0 pb-6">
+          <div className="flex flex-col gap-4">
             {faqData.map((item, index) => {
               const isOpen = openIndex === index;
 
@@ -173,26 +174,8 @@ const Faq = () => {
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Optional global micro-styling layer inject to hide scrollbar rails cleanly */}
-      <style>{`
-        .custom-scrollbar::-webkit-scrollbar {
-          width: 5px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-          background: transparent;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: rgba(0, 0, 0, 0.1);
-          border-radius: 99px;
-        }
-        .custom-scrollbar {
-          scrollbar-width: thin;
-          scrollbar-color: rgba(0, 0, 0, 0.1) transparent;
-        }
-      `}</style>
-    </section>
+      </Container>
+    </PageSection>
   );
 };
 

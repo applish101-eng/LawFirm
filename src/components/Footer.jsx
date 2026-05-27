@@ -145,7 +145,7 @@ Message: ${message}
 
           <form
             onSubmit={handleSubmit}
-            className="w-full min-h-screen flex flex-col gap-4 mt-6"
+            className="w-full flex flex-col gap-4 mt-6"
           >
             {/* NAME + PHONE */}
             <div className="flex flex-col sm:flex-row gap-4 w-full">
@@ -252,7 +252,7 @@ Message: ${message}
             </div>
           </form>
         </div>
-        <div className="relative w-full mt-20 lg:mt-0 pt-20 bg-primary-700 border-t rounded-t-lg flex flex-col items-center justify-center">
+        <div className="relative w-full mt-60  bg-primary-700 border-t rounded-t-lg flex flex-col items-center justify-center">
           <img
             src={LogoHead}
             alt="logo"

@@ -3,6 +3,9 @@ import { gsap } from "gsap";
 import { ArrowDown } from "lucide-react";
 import Services from "./Hompage/Services";
 import Footer from "../components/Footer";
+import PageSection from "../components/PageSection";
+import Container from "../components/Container";
+import ImageService from "../assets/MainServiceImage.png";
 
 const ServicesHero = () => {
   const containerRef = useRef(null);
@@ -18,7 +21,6 @@ const ServicesHero = () => {
         defaults: { ease: "power3.out", duration: 0.9 },
       });
 
-      // Staged sophisticated entry sequence
       tl.fromTo(
         [textLeftRef.current, textRightRef.current],
         { y: 25, opacity: 0 },
@@ -48,11 +50,12 @@ const ServicesHero = () => {
   }, []);
 
   return (
-    <section
+    <PageSection
       ref={containerRef}
-      className="w-full min-h-screen flex flex-col justify-center bg-[#F4F4F4] text-[#111111] font-sans antialiased overflow-hidden px-6"
+      variant="large"
+      className="bg-[#F4F4F4] text-[#111111]"
     >
-      <div className="w-full flex flex-col">
+      <Container className="flex flex-col">
         {/* Top Header Row split */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16 items-end pb-8">
           {/* Left Side: Category Label & Large Title */}
@@ -60,7 +63,7 @@ const ServicesHero = () => {
             ref={textLeftRef}
             className="lg:col-span-7 flex flex-col space-y-2"
           >
-            <span className="text-xs md:text-sm font-medium tracking-wide text-neutral-500 uppercase">
+            <span className="text-xs md:text-sm font-medium font-primary text-black ">
               Services
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-tight">
@@ -79,13 +82,11 @@ const ServicesHero = () => {
 
         {/* Divider Line & Action Button Row */}
         <div className="relative w-full flex items-center mb-12 md:mb-16">
-          {/* Animated border line across */}
           <div
             ref={lineRef}
             className="flex-grow h-[1px] bg-neutral-400/80 transform will-change-transform"
           />
 
-          {/* Square Anchor Arrow Box */}
           <div
             ref={arrowBoxRef}
             className="flex-shrink-0 border border-neutral-400/80 p-3.5 bg-transparent ml-4 rounded-xs transition-colors duration-300 hover:bg-neutral-200/50 cursor-pointer group"
@@ -99,22 +100,17 @@ const ServicesHero = () => {
             <ArrowDown className="w-5 h-5 text-neutral-800 transform group-hover:translate-y-0.5 transition-transform duration-300" />
           </div>
         </div>
+      </Container>
 
-        {/* Main Hero Historical Still Image Context */}
-        <div
-          ref={imageContainerRef}
-          className="w-full h-[380px] md:h-[540px] overflow-hidden rounded-xs shadow-xs relative"
-        >
-          <img
-            src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80&w=2000"
-            alt="Antique legal validation office stamps and ink paperwork documents table context"
-            className="w-full h-full object-cover object-center transform scale-100 hover:scale-102 transition-transform duration-700 ease-out"
-          />
-        </div>
+      {/* Main Hero Historical Still Image Context — full bleed, no padding */}
+      <div
+        ref={imageContainerRef}
+        className="w-full h-[380px] md:h-[540px] overflow-hidden rounded-xs shadow-xs"
+      >
+        <img src={ImageService} alt="" className="w-full h-full object-cover" />
       </div>
       <Services />
-      <Footer />
-    </section>
+    </PageSection>
   );
 };
 

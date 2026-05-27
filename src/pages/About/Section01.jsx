@@ -1,12 +1,16 @@
 import React from "react";
 import Section01Service from "../../assets/ServiceSection01.png";
+import PageSection from "../../components/PageSection";
+import Container from "../../components/Container";
 
 const Section01 = () => {
   return (
-    <section className="w-full min-h-screen flex flex-col justify-center bg-white px-6">
-      <div className="mx-auto flex flex-col lg:flex-row gap-3 lg:gap-20">
+    <PageSection className="bg-[#F5F5F5]">
+      <Container className="flex flex-col gap-3 lg:gap-20 lg:flex-row">
         <div className="flex-2 flex flex-col gap-1 lg:gap-4">
-          <h2 className="font-primary text-black/60 text-sm tracking-widest uppercase">About Us</h2>
+          <h2 className="font-primary text-black text-md font-medium  ">
+            About Us
+          </h2>
           <h1 className="font-secondary text-3xl sm:text-3xl lg:text-6xl font-medium leading-tight">
             Every situation deserves thoughtful guidance.
           </h1>
@@ -27,14 +31,14 @@ const Section01 = () => {
             <p className="underline font-secondary ">Meera Maharjan</p>
           </a>
         </div>
-      </div>
+      </Container>
 
       <img
         src={Section01Service}
         alt=""
         className="w-full h-full mt-12 lg:object-cover"
       />
-    </section>
+    </PageSection>
   );
 };
 

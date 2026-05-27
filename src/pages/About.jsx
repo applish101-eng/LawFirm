@@ -13,9 +13,9 @@ const About = () => {
       <Section02 />
       <Section03 />
       <Section04 />
-      <Footer />
     </div>
   );
 };
 
 export default About;
+

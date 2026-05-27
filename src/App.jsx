@@ -8,6 +8,7 @@ import Contact from "./pages/Contact";
 import { useEffect } from "react";
 import Lenis from "lenis";
 import Cursor from "./components/Cursor";
+import Footer from "./components/Footer";
 function App() {
   const [count, setCount] = useState(0);
   useEffect(() => {
@@ -40,6 +41,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </section>
+      <Footer />
     </>
   );
 }

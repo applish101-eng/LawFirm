@@ -1,7 +1,9 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { MapPin, Phone, Mail } from "lucide-react"; // Removed Facebook from here
+import { MapPin, Phone, Mail } from "lucide-react";
 import Footer from "../components/Footer";
+import PageSection from "../components/PageSection";
+import Container from "../components/Container";
 
 const Contact = () => {
   const containerRef = useRef(null);
@@ -34,11 +36,12 @@ const Contact = () => {
   }, []);
 
   return (
-    <section
+    <PageSection
       ref={containerRef}
-      className="w-full min-h-screen flex flex-col justify-center bg-[#F4F4F4] text-[#111111] font-sans antialiased overflow-hidden px-6"
+      variant="large"
+      className="bg-[#F4F4F4] text-[#111111]"
     >
-      <div className="w-full flex flex-col space-y-10 md:space-y-12">
+      <Container className="flex flex-col space-y-10 md:space-y-12">
         {/* Category Label and Main Heading */}
         <div ref={titleRef} className="flex flex-col space-y-1">
           <span className="text-xs md:text-sm font-medium tracking-wide text-neutral-500 uppercase">
@@ -89,7 +92,6 @@ const Contact = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 font-light text-2xl md:text-3xl lg:text-4xl tracking-tight hover:text-blue-600 transition-colors duration-300 group"
               >
-                {/* Safe Inline SVG Replacement for Facebook */}
                 <svg
                   className="w-6 h-6 text-neutral-400 group-hover:text-blue-600 transition-colors stroke-[1.5]"
                   viewBox="0 0 24 24"
@@ -118,9 +120,8 @@ const Contact = () => {
             />
           </div>
         </div>
-      </div>
-      <Footer />
-    </section>
+      </Container>
+    </PageSection>
   );
 };
 
