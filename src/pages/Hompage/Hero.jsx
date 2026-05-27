@@ -12,11 +12,11 @@ const Hero = () => {
         {/* ===============================
         BACKGROUND LAYER
       =============================== */}
-          <img
-            src={HeroImage}
-            alt="Advocate Meera Maharjan Liberty Legal Service law firm Kathmandu Nepal"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
+        <img
+          src={HeroImage}
+          alt="Advocate Meera Maharjan Liberty Legal Service law firm Kathmandu Nepal"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
 
         {/* ===============================
         GRADIENT OVERLAY LAYER
@@ -78,8 +78,8 @@ const Hero = () => {
               {/* HEADING */}
               <div className="flex flex-col gap-2">
                 <h1 className="max-w-4xl sm:text-5xl text-2xl  font-normal text-white leading-tight font-secondary ">
-                  Trusted legal guidance in Kathmandu for <br></br> the matters
-                  that matter most.
+                  Trusted legal guidance in Kathmandu for the matters that
+                  matter most.
                 </h1>
                 <p className="max-w-md  text-white text-[12px] font-light font-secondary leading-relaxed sm:hidden">
                   Led by Advocate Meera Maharjan, Liberty Legal Service &
@@ -100,10 +100,11 @@ const Hero = () => {
                   responsiveVisibility="sm:hidden"
                   iconRight={<Send className="w-4 h-4" />}
                   onClick={() => {
-                    const el = document.getElementById('forum');
+                    const el = document.getElementById("forum");
                     if (el) {
-                      if (window.lenis) window.lenis.scrollTo(el, { offset: -80 });
-                      else el.scrollIntoView({ behavior: 'smooth' });
+                      if (window.lenis)
+                        window.lenis.scrollTo(el, { offset: -80 });
+                      else el.scrollIntoView({ behavior: "smooth" });
                     }
                   }}
                 >
@@ -112,10 +113,11 @@ const Hero = () => {
 
                 {/* OUR STORY */}
                 <Button
-                  width="full"
+                  width="fit"
                   variant="secondary"
-                  size="xl"
+                  size="lg"
                   className="
+      self-end
       flex
      
  
@@ -148,8 +150,7 @@ const Hero = () => {
 
                 {/* TEXT */}
                 <p className="text-white/80 text-md hidden sm:block font-light font-secondary">
-                  Advocate Meera Maharjan — 15+ years of legal excellence in
-                  Nepal
+                  15+ years of legal excellence in Nepal
                 </p>
               </div>
             </div>
