@@ -175,7 +175,7 @@ const Services = () => {
   };
 
   return (
-    <div className="w-full bg-[#F5F5F5] py-20 ">
+    <div id="services" className="w-full bg-[#F5F5F5] py-20 ">
       {/* ======================================================
           PINNED VIEWPONT CONTAINER (H-SCREEN LOCK)
       ====================================================== */}

@@ -60,7 +60,11 @@ const Navbar = () => {
         {/* Mobile Header Inside Overlay */}
         <div className="flex items-center justify-between p-4 w-full">
           <Link to="/" onClick={() => setMenuOpen(false)}>
-            <img src={logowhite} alt="Liberty Legal Service Advocate Meera Maharjan logo" className="h-8" />
+            <img
+              src={logowhite}
+              alt="Liberty Legal Service Advocate Meera Maharjan logo"
+              className="h-8"
+            />
           </Link>
 
           <button onClick={() => setMenuOpen(false)} className="text-white p-2">
@@ -98,10 +102,10 @@ const Navbar = () => {
             className="flex items-center gap-2 rounded border bg-primary-500 px-6 py-3 text-lg font-medium text-black whitespace-nowrap mt-4"
             onClick={() => {
               setMenuOpen(false);
-              const el = document.getElementById('forum');
+              const el = document.getElementById("forum");
               if (el) {
-                if (window.lenis) window.lenis.scrollTo(el, { offset: -80 });
-                else el.scrollIntoView({ behavior: 'smooth' });
+                if (window.lenis) window.lenis.scrollTo(el, { offset: -70 });
+                else el.scrollIntoView({ behavior: "smooth" });
               }
             }}
           >
@@ -162,10 +166,10 @@ const Navbar = () => {
             <button
               className="flex items-center gap-2 rounded border bg-primary-500 px-3 py-2 text-sm font-medium text-black hover:bg-primary-500 hover:text-black transition-colors duration-300 whitespace-nowrap shrink-0"
               onClick={() => {
-                const el = document.getElementById('forum');
+                const el = document.getElementById("forum");
                 if (el) {
                   if (window.lenis) window.lenis.scrollTo(el, { offset: -80 });
-                  else el.scrollIntoView({ behavior: 'smooth' });
+                  else el.scrollIntoView({ behavior: "smooth" });
                 }
               }}
             >

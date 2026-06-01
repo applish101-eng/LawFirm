@@ -113,10 +113,10 @@ Message: ${message}
 
   return (
     <>
-      <section id="forum" className="w-full bg-black">
+      <section className="w-full bg-black">
         {/* FORM SECTION */}
         <div
-          id="consultation-form"
+          id="forum"
           className="w-full bg-black flex flex-col p-6 gap-3 lg:gap-0"
         >
           <div className="w-full flex items-center justify-between">
@@ -352,7 +352,7 @@ Message: ${message}
                       const el = document.getElementById("forum");
                       if (el) {
                         if (window.lenis)
-                          window.lenis.scrollTo(el, { offset: -80 });
+                          window.lenis.scrollTo(el, { offset: -70 });
                         else el.scrollIntoView({ behavior: "smooth" });
                       }
                     }}
