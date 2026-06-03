@@ -3,7 +3,6 @@ import { gsap } from "gsap";
 import { ArrowDown } from "lucide-react";
 import SEO from "../components/SEO";
 import Services from "./Hompage/Services";
-import Footer from "../components/Footer";
 import PageSection from "../components/PageSection";
 import Container from "../components/Container";
 import ImageService from "../assets/MainServiceImage.png";

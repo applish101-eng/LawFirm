@@ -55,148 +55,154 @@ const Faq = () => {
         description="Find answers to common legal questions in Nepal. Learn about divorce, company registration, property disputes, and more from Advocate Meera Maharjan."
         canonical="https://libertylegalnepal.com/faq"
       />
-      <PageSection variant="large" className="relative bg-[#F5F5F5] select-none">
-      <Container className="flex flex-col gap-6 lg:gap-10">
-        {/* SUBHEADER TAG */}
-        <h1 className="text-sm lg:text-base font-primary text-black uppercase tracking-wider font-semibold text-center lg:text-left shrink-0">
-          Frequently Asked Questions
-        </h1>
+      <PageSection
+        variant="large"
+        className="relative bg-[#F5F5F5] select-none "
+      >
+        <Container className="flex flex-col gap-6 lg:gap-10">
+          {/* SUBHEADER TAG */}
+          <h1 className="text-sm lg:text-base font-primary text-black uppercase tracking-wider font-semibold text-center lg:text-left shrink-0">
+            Frequently Asked Questions
+          </h1>
 
-        {/* MAIN SPLIT GRID CONTAINER */}
-        <div className="grid grid-cols-1 lg:grid-cols-[42%_1fr] gap-10 lg:gap-16 w-full">
-          {/* ======================================================
+          {/* MAIN SPLIT GRID CONTAINER */}
+          <div className="grid grid-cols-1 lg:grid-cols-[42%_1fr] gap-10 lg:gap-16 w-full">
+            {/* ======================================================
               LEFT COLUMN: HERO TEXT & DESKTOP CALL-TO-ACTION
           ====================================================== */}
-          <div className="flex flex-col justify-between gap-8 lg:pb-4 shrink-0">
-            <div className="flex flex-col gap-4">
-              <h2 className="text-2xl sm:text-4xl lg:text-5xl text-center lg:text-left font-secondary font-medium text-black leading-tight tracking-tight">
-                Questions we frequently receive from clients & businesses
-              </h2>
+            <div className="flex flex-col justify-between gap-8 lg:pb-4 shrink-0">
+              <div className="flex flex-col gap-4">
+                <h2 className="text-2xl sm:text-4xl lg:text-5xl text-center lg:text-left font-secondary font-medium text-black leading-tight tracking-tight">
+                  Questions we frequently receive from clients & businesses
+                </h2>
 
-              <p className="text-sm sm:text-base text-center lg:text-left text-black/70 leading-relaxed max-w-xl mx-auto lg:mx-0">
-                We've answered some of the most common questions about our
-                services, approach, and areas of practice to help you better
-                understand how we work. If you still have a question that isn't
-                covered here, feel free to reach out to our team.
-              </p>
-            </div>
-
-            {/* CTA Option: Shows on large viewports */}
-            <div className="hidden lg:flex flex-col gap-5 items-start">
-              <div>
-                <h3 className="text-xl lg:text-2xl font-medium text-black">
-                  Need more information?
-                </h3>
-                <p className="text-black/60 text-sm mt-1">
-                  Get in touch with our expert legal team today.
+                <p className="text-sm sm:text-base text-center lg:text-left text-black/70 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                  We've answered some of the most common questions about our
+                  services, approach, and areas of practice to help you better
+                  understand how we work. If you still have a question that
+                  isn't covered here, feel free to reach out to our team.
                 </p>
               </div>
 
-              <Button
-                variant="primary"
-                size="lg"
-                iconRight={<ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />}
-                onClick={() => {
-                  const el = document.getElementById('forum');
-                  if (el) {
-                    if (window.lenis) window.lenis.scrollTo(el, { offset: -80 });
-                    else el.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
-              >
-                Talk to Our Team
-              </Button>
-            </div>
-          </div>
+              {/* CTA Option: Shows on large viewports */}
+              <div className="hidden lg:flex flex-col gap-5 items-start">
+                <div>
+                  <h3 className="text-xl lg:text-2xl font-medium text-black">
+                    Need more information?
+                  </h3>
+                  <p className="text-black/60 text-sm mt-1">
+                    Get in touch with our expert legal team today.
+                  </p>
+                </div>
 
-          {/* ======================================================
+                <Button
+                  variant="primary"
+                  size="lg"
+                  iconRight={<ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />}
+                  onClick={() => {
+                    const el = document.getElementById("forum");
+                    if (el) {
+                      if (window.lenis)
+                        window.lenis.scrollTo(el, { offset: -80 });
+                      else el.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
+                >
+                  Talk to Our Team
+                </Button>
+              </div>
+            </div>
+
+            {/* ======================================================
               RIGHT COLUMN: ACCORDION LIST
           ====================================================== */}
-          <div className="flex flex-col gap-4">
-            {faqData.map((item, index) => {
-              const isOpen = openIndex === index;
+            <div className="flex flex-col gap-4">
+              {faqData.map((item, index) => {
+                const isOpen = openIndex === index;
 
-              return (
-                <div
-                  key={index}
-                  className={`bg-white p-5 sm:p-6 rounded-xl border border-transparent transition-all duration-300 ${
-                    isOpen
-                      ? "shadow-md border-black/5"
-                      : "shadow-sm hover:border-black/10"
-                  }`}
-                >
-                  {/* ACCORDION TRIGGER */}
-                  <button
-                    onClick={() => toggle(index)}
-                    className="w-full flex items-center justify-between gap-4 text-left group"
-                  >
-                    <h2
-                      className={`text-sm sm:text-md lg:text-lg font-secondary font-medium leading-snug pr-2 flex-1 transition-colors duration-200 ${
-                        isOpen
-                          ? "text-black"
-                          : "text-black/90 group-hover:text-black"
-                      }`}
-                    >
-                      {item.question}
-                    </h2>
-
-                    <div
-                      className={`border border-slate-200 flex items-center justify-center rounded-full p-2 shrink-0 transition-all duration-300 ${
-                        isOpen
-                          ? "rotate-180 bg-black border-black text-white"
-                          : "bg-transparent text-black"
-                      }`}
-                    >
-                      <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5" />
-                    </div>
-                  </button>
-
-                  {/* ACCORDION TEXT EXPANSION WINDOW */}
+                return (
                   <div
-                    className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                    key={index}
+                    className={`bg-white p-5 sm:p-6 rounded-xl border border-transparent transition-all duration-300 ${
                       isOpen
-                        ? "max-h-[300px] opacity-100 mt-4"
-                        : "max-h-0 opacity-0"
+                        ? "shadow-md border-black/5"
+                        : "shadow-sm hover:border-black/10"
                     }`}
                   >
-                    <p className="text-xs sm:text-sm lg:text-base text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
-                      {item.answer}
-                    </p>
+                    {/* ACCORDION TRIGGER */}
+                    <button
+                      onClick={() => toggle(index)}
+                      className="w-full flex items-center justify-between gap-4 text-left group"
+                    >
+                      <h2
+                        className={`text-sm sm:text-md lg:text-lg font-secondary font-medium leading-snug pr-2 flex-1 transition-colors duration-200 ${
+                          isOpen
+                            ? "text-black"
+                            : "text-black/90 group-hover:text-black"
+                        }`}
+                      >
+                        {item.question}
+                      </h2>
+
+                      <div
+                        className={`border border-slate-200 flex items-center justify-center rounded-full p-2 shrink-0 transition-all duration-300 ${
+                          isOpen
+                            ? "rotate-180 bg-black border-black text-white"
+                            : "bg-transparent text-black"
+                        }`}
+                      >
+                        <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5" />
+                      </div>
+                    </button>
+
+                    {/* ACCORDION TEXT EXPANSION WINDOW */}
+                    <div
+                      className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                        isOpen
+                          ? "max-h-[300px] opacity-100 mt-4"
+                          : "max-h-0 opacity-0"
+                      }`}
+                    >
+                      <p className="text-xs sm:text-sm lg:text-base text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+                        {item.answer}
+                      </p>
+                    </div>
                   </div>
+                );
+              })}
+
+              {/* CTA Option fallback: Shows on mobile viewports below items */}
+
+              <div className="lg:hidden  lg:flex flex-col gap-5 mt-6 items-start">
+                <div>
+                  <h3 className="text-xl lg:text-2xl font-medium text-black">
+                    Need more information?
+                  </h3>
+                  <p className="text-black/60 text-sm mt-1">
+                    Get in touch with our expert legal team today.
+                  </p>
                 </div>
-              );
-            })}
 
-            {/* CTA Option fallback: Shows on mobile viewports below items */}
-            <div className="lg:hidden flex flex-col gap-4 pt-6 border-t border-black/10 mt-2">
-              <div>
-                <h1 className="text-xl font-medium text-black">
-                  Need more information?
-                </h1>
-                <p className="text-black/60 text-sm mt-1">
-                  Get in touch with our legal team.
-                </p>
+                <Button
+                  variant="primary"
+                  size="lg"
+                  iconRight={<ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />}
+                  onClick={() => {
+                    const el = document.getElementById("forum");
+                    if (el) {
+                      if (window.lenis)
+                        window.lenis.scrollTo(el, { offset: -80 });
+                      else el.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
+                >
+                  Talk to Our Team
+                </Button>
               </div>
-
-              <Button
-                variant="secondary"
-                size="lg"
-                iconRight={<ArrowRight className="w-5 h-5 sm:w-6 sm:h-6" />}
-                onClick={() => {
-                  const el = document.getElementById('forum');
-                  if (el) {
-                    if (window.lenis) window.lenis.scrollTo(el, { offset: -80 });
-                    else el.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
-              >
-                Talk to Our Team
-              </Button>
             </div>
           </div>
-        </div>
-      </Container>
-    </PageSection>
+        </Container>
+      </PageSection>
     </>
   );
 };

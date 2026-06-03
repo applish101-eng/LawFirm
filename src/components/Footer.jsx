@@ -357,7 +357,7 @@ Message: ${message}
                       }
                     }}
                   >
-                    Book a Consultation
+                    Book Consultation
                   </button>
                   <button
                     className="w-auto flex items-center justify-between gap-6 text-2xl border-white border-1 py-2 pl-3 pr-2 font-secondary text-white font-medium rounded hover:bg-primary-600 transition-colors duration-300 cursor-pointer"

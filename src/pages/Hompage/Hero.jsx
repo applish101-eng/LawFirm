@@ -108,7 +108,7 @@ const Hero = () => {
                     }
                   }}
                 >
-                  Book a Consultation
+                  Book Consultation
                 </Button>
 
                 {/* OUR STORY */}

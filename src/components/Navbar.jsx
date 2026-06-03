@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import logowhite from "../assets/logowhite.svg";
+import logoblack from "../assets/logoblack.svg";
 import { Send, Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isPastHero, setIsPastHero] = useState(() => window.scrollY > window.innerHeight - 50);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+      setIsPastHero(currentScrollY > window.innerHeight - 50);
 
       // Prevent the navbar from hiding if the mobile menu is active
       if (menuOpen) return;
@@ -109,7 +112,7 @@ const Navbar = () => {
               }
             }}
           >
-            Book a Consultation
+            Book Consultation
             <Send className="w-5 h-5" />
           </button>
         </div>
@@ -117,7 +120,9 @@ const Navbar = () => {
 
       {/* MAIN NAVIGATION BAR */}
       <nav
-        className={`fixed top-0 left-0 w-full z-40 bg-black/80 backdrop-blur-sm transition-transform duration-300 ${
+        className={`fixed top-0 left-0 w-full z-40 transition-colors duration-300 ${
+          isPastHero ? "bg-[#F5F5F5]" : "bg-black/80"
+        } transition-transform duration-300 ${
           showNavbar ? "translate-y-0" : "-translate-y-full"
         }`}
       >
@@ -125,7 +130,7 @@ const Navbar = () => {
           {/* LOGO */}
           <Link to="/" className="shrink-0">
             <img
-              src={logowhite}
+              src={isPastHero ? logoblack : logowhite}
               alt="Liberty Legal Service Advocate Meera Maharjan logo"
               className="cursor-pointer h-8 sm:h-10"
             />
@@ -133,7 +138,7 @@ const Navbar = () => {
 
           {/* MOBILE MENU TRIGGER */}
           <button
-            className="sm:hidden text-white p-2"
+            className={`sm:hidden p-2 transition-all duration-300 ${isPastHero ? "text-black" : "text-white"}`}
             onClick={() => setMenuOpen(true)}
           >
             <Menu className="w-7 h-7" />
@@ -143,28 +148,28 @@ const Navbar = () => {
           <div className="hidden sm:flex items-center gap-4 sm:gap-6 flex-wrap justify-end">
             <Link
               to="/about"
-              className="text-slate-300 hover:text-white transition-colors duration-300"
+              className={`transition-colors duration-300 ${isPastHero ? "text-slate-600 hover:text-black" : "text-gray-300 hover:text-white"}`}
             >
               About
             </Link>
 
             <Link
               to="/service"
-              className="text-slate-300 hover:text-white transition-colors duration-300"
+              className={`transition-colors duration-300 ${isPastHero ? "text-slate-600 hover:text-black" : "text-gray-300 hover:text-white"}`}
             >
               Service
             </Link>
 
             <Link
               to="/contact"
-              className="text-slate-300 hover:text-white transition-colors duration-300"
+              className={`transition-colors duration-300 ${isPastHero ? "text-slate-600 hover:text-black" : "text-gray-300 hover:text-white"}`}
             >
               Contact
             </Link>
 
             {/* CTA BUTTON */}
             <button
-              className="flex items-center gap-2 rounded border bg-primary-500 px-3 py-2 text-sm font-medium text-black hover:bg-primary-500 hover:text-black transition-colors duration-300 whitespace-nowrap shrink-0"
+              className="flex items-center gap-2 rounded  bg-primary-500 px-3 py-2 text-sm font-medium text-black hover:bg-primary-500 hover:text-black transition-colors duration-300 whitespace-nowrap shrink-0"
               onClick={() => {
                 const el = document.getElementById("forum");
                 if (el) {
@@ -173,7 +178,7 @@ const Navbar = () => {
                 }
               }}
             >
-              Book a Consultation
+              Book Consultation
               <Send className="w-4 h-4" />
             </button>
           </div>
