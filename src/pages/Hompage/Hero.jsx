@@ -77,9 +77,9 @@ const Hero = () => {
             <div className="flex  flex-col sm:flex-row sm:items-end gap-4 justify-between">
               {/* HEADING */}
               <div className="flex flex-col gap-2">
-                <h1 className="max-w-4xl sm:text-5xl text-2xl  font-normal text-white leading-tight font-secondary ">
-                  Trusted legal guidance in Kathmandu for the matters that
-                  matter most.
+                <h1 className="max-w-4xl lg:max-w-3xl sm:text-5xl text-2xl  font-normal text-white leading-tight font-secondary ">
+                  Trusted legal guidance in Lalitpur for the lives that matter
+                  most.
                 </h1>
                 <p className="max-w-md  text-white text-[12px] font-light font-secondary leading-relaxed sm:hidden">
                   Led by Advocate Meera Maharjan, Liberty Legal Service &

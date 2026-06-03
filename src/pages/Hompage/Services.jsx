@@ -204,7 +204,7 @@ const Services = () => {
               <div className="inline-flex border border-black/10 rounded-md p-1 bg-white shadow-sm">
                 <button
                   onClick={() => handleTabClick("individuals")}
-                  className={`px-6 py-2 rounded-md font-medium text-sm transition-all duration-300 ${
+                  className={`px-6 py-2 rounded-md font-medium text-sm transition-all duration-300 cursor-pointer ${
                     active === "individuals"
                       ? "bg-black text-white shadow-md"
                       : "text-black/50 hover:text-black"
@@ -215,7 +215,7 @@ const Services = () => {
 
                 <button
                   onClick={() => handleTabClick("companies")}
-                  className={`px-6 py-2 rounded-md font-medium text-sm transition-all duration-300 ${
+                  className={`px-6 py-2 rounded-md font-medium text-sm transition-all duration-300 cursor-pointer ${
                     active === "companies"
                       ? "bg-black text-white shadow-md"
                       : "text-black/50 hover:text-black"

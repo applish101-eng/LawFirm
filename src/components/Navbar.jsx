@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logowhite from "../assets/logowhite.svg";
 import logoblack from "../assets/logoblack.svg";
 import { Send, Menu, X } from "lucide-react";
 
 const Navbar = () => {
+  const { pathname } = useLocation();
+  const isHome = pathname === "/";
+
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isPastHero, setIsPastHero] = useState(() => window.scrollY > window.innerHeight - 50);
+  const [isPastHero, setIsPastHero] = useState(
+    () => window.scrollY > window.innerHeight - 50,
+  );
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,6 +55,8 @@ const Navbar = () => {
     };
   }, [menuOpen]);
 
+  const isLight = !isHome || isPastHero;
+
   return (
     <>
       {/* MOBILE MENU OVERLAY (Moved outside the main nav so it doesn't translate away) */}
@@ -70,7 +77,10 @@ const Navbar = () => {
             />
           </Link>
 
-          <button onClick={() => setMenuOpen(false)} className="text-white p-2">
+          <button
+            onClick={() => setMenuOpen(false)}
+            className="text-white p-2 cursor-pointer"
+          >
             <X className="w-8 h-8" />
           </button>
         </div>
@@ -102,7 +112,7 @@ const Navbar = () => {
           </Link>
 
           <button
-            className="flex items-center gap-2 rounded border bg-primary-500 px-6 py-3 text-lg font-medium text-black whitespace-nowrap mt-4"
+            className="flex items-center gap-2 rounded border bg-primary-500 px-6 py-3 text-lg font-medium text-black whitespace-nowrap mt-4 cursor-pointer"
             onClick={() => {
               setMenuOpen(false);
               const el = document.getElementById("forum");
@@ -121,7 +131,7 @@ const Navbar = () => {
       {/* MAIN NAVIGATION BAR */}
       <nav
         className={`fixed top-0 left-0 w-full z-40 transition-colors duration-300 ${
-          isPastHero ? "bg-[#F5F5F5]" : "bg-black/80"
+          isLight ? "bg-[#F5F5F5]" : "bg-black/80"
         } transition-transform duration-300 ${
           showNavbar ? "translate-y-0" : "-translate-y-full"
         }`}
@@ -130,7 +140,7 @@ const Navbar = () => {
           {/* LOGO */}
           <Link to="/" className="shrink-0">
             <img
-              src={isPastHero ? logoblack : logowhite}
+              src={isLight ? logoblack : logowhite}
               alt="Liberty Legal Service Advocate Meera Maharjan logo"
               className="cursor-pointer h-8 sm:h-10"
             />
@@ -138,7 +148,7 @@ const Navbar = () => {
 
           {/* MOBILE MENU TRIGGER */}
           <button
-            className={`sm:hidden p-2 transition-all duration-300 ${isPastHero ? "text-black" : "text-white"}`}
+            className={`sm:hidden p-2 transition-all duration-300 cursor-pointer ${isLight ? "text-black" : "text-white"}`}
             onClick={() => setMenuOpen(true)}
           >
             <Menu className="w-7 h-7" />
@@ -148,32 +158,32 @@ const Navbar = () => {
           <div className="hidden sm:flex items-center gap-4 sm:gap-6 flex-wrap justify-end">
             <Link
               to="/about"
-              className={`transition-colors duration-300 ${isPastHero ? "text-slate-600 hover:text-black" : "text-gray-300 hover:text-white"}`}
+              className={`transition-colors duration-300 ${isLight ? "text-slate-600 hover:text-black" : "text-gray-300 hover:text-white"}`}
             >
               About
             </Link>
 
             <Link
               to="/service"
-              className={`transition-colors duration-300 ${isPastHero ? "text-slate-600 hover:text-black" : "text-gray-300 hover:text-white"}`}
+              className={`transition-colors duration-300 ${isLight ? "text-slate-600 hover:text-black" : "text-gray-300 hover:text-white"}`}
             >
               Service
             </Link>
 
             <Link
               to="/contact"
-              className={`transition-colors duration-300 ${isPastHero ? "text-slate-600 hover:text-black" : "text-gray-300 hover:text-white"}`}
+              className={`transition-colors duration-300 ${isLight ? "text-slate-600 hover:text-black" : "text-gray-300 hover:text-white"}`}
             >
               Contact
             </Link>
 
             {/* CTA BUTTON */}
             <button
-              className="flex items-center gap-2 rounded  bg-primary-500 px-3 py-2 text-sm font-medium text-black hover:bg-primary-500 hover:text-black transition-colors duration-300 whitespace-nowrap shrink-0"
+              className="flex items-center gap-2 rounded  bg-primary-500 px-3 py-2 text-sm font-medium text-black hover:bg-primary-500 hover:text-black transition-colors duration-300 whitespace-nowrap shrink-0 cursor-pointer"
               onClick={() => {
                 const el = document.getElementById("forum");
                 if (el) {
-                  if (window.lenis) window.lenis.scrollTo(el, { offset: -80 });
+                  if (window.lenis) window.lenis.scrollTo(el, { offset: 1 });
                   else el.scrollIntoView({ behavior: "smooth" });
                 }
               }}

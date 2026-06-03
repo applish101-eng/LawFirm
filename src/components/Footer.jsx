@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import LogoHead from "../assets/HeadLogo.svg";
 import QRphone from "../assets/PhoneQR.png";
@@ -18,6 +18,7 @@ const Footer = () => {
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState("");
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -213,7 +214,14 @@ Message: ${message}
                   />
 
                   <label className="text-white text-md sm:text-3xl lg:text-[18px]">
-                    I agree to the terms and conditions.
+                    I agree to the{" "}
+                    <Link
+                      to="/privacy"
+                      className="underline underline-offset-2 hover:text-primary-500 transition-colors"
+                    >
+                      Privacy Policy
+                    </Link>
+                    .
                   </label>
                 </div>
                 {submitted && !formData.terms && (
@@ -347,7 +355,7 @@ Message: ${message}
                 </p>
                 <div className="w-full flex flex-col lg:flex-row items-center justify-center gap-4 mt-6">
                   <button
-                    className="w-auto flex items-center justify-center gap-2 text-2xl rounded border bg-primary-500 px-6 py-4 font-secondary font-medium text-black hover:bg-primary-500 hover:text-black transition-colors duration-300 whitespace-nowrap shrink-0"
+                    className="w-auto flex items-center justify-center gap-2 text-2xl rounded border bg-primary-500 px-6 py-4 font-secondary font-medium text-black hover:bg-primary-500 hover:text-black transition-colors duration-300 whitespace-nowrap shrink-0 cursor-pointer"
                     onClick={() => {
                       const el = document.getElementById("forum");
                       if (el) {
@@ -361,7 +369,7 @@ Message: ${message}
                   </button>
                   <button
                     className="w-auto flex items-center justify-between gap-6 text-2xl border-white border-1 py-2 pl-3 pr-2 font-secondary text-white font-medium rounded hover:bg-primary-600 transition-colors duration-300 cursor-pointer"
-                    onClick={() => (window.location.href = "/about")}
+                    onClick={() => navigate("/about")}
                   >
                     <span>Our Story</span>
                     <span className="bg-white text-black p-3 rounded-sm">

@@ -18,14 +18,3 @@
   --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
 }
 
-/* cursor rules */
-@media (pointer: fine) {
-  body {
-    cursor: none;
-  }
-
-  a,
-  button {
-    cursor: none;
-  }
-}

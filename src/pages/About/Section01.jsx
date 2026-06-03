@@ -28,7 +28,7 @@ const Section01 = () => {
             className="font-primary flex gap-2 text-sm text-black transition-colors duration-300 w-fit"
           >
             <span>-</span>
-            <p className="underline font-secondary ">Meera Maharjan</p>
+            <p className="underline font-secondary ">Advocate Meera Maharjan</p>
           </a>
         </div>
       </Container>
