@@ -15,28 +15,31 @@ const Section04 = () => {
   useEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
-        defaults: { ease: "power3.out", duration: 0.8 },
+        defaults: { ease: "power4.out", duration: 1.4 },
       });
 
-      // Clean load-in sequence
-      tl.fromTo(headerRef.current, { y: 20, opacity: 0 }, { y: 0, opacity: 1 })
+      tl.fromTo(
+        headerRef.current,
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1 },
+      )
         .fromTo(
           textContentRef.current,
           { y: 25, opacity: 0 },
           { y: 0, opacity: 1 },
-          "-=0.5",
+          "-=0.8",
         )
         .fromTo(
           buttonRef.current,
-          { x: -15, opacity: 0 },
-          { x: 0, opacity: 1 },
-          "-=0.4",
+          { y: 15, opacity: 0 },
+          { y: 0, opacity: 1 },
+          "-=0.6",
         )
         .fromTo(
           imageWrapperRef.current,
           { clipPath: "inset(0 100% 0 0)", opacity: 0 },
-          { clipPath: "inset(0 0% 0 0)", opacity: 1, duration: 1.2 },
-          "-=0.6",
+          { clipPath: "inset(0 0% 0 0)", opacity: 1, duration: 1.6 },
+          "-=0.8",
         );
     }, containerRef);
 

@@ -111,6 +111,14 @@ const Navbar = () => {
             Contact
           </Link>
 
+          <Link
+            to="/gallery"
+            className="text-slate-600 w-auto text-5xl font-medium font-secondary hover:text-white transition-colors"
+            onClick={() => setMenuOpen(false)}
+          >
+            Gallery
+          </Link>
+
           <button
             className="flex items-center gap-2 rounded border bg-primary-500 px-6 py-3 text-lg font-medium text-black whitespace-nowrap mt-4 cursor-pointer"
             onClick={() => {
@@ -175,6 +183,13 @@ const Navbar = () => {
               className={`transition-colors duration-300 ${isLight ? "text-slate-600 hover:text-black" : "text-gray-300 hover:text-white"}`}
             >
               Contact
+            </Link>
+
+            <Link
+              to="/gallery"
+              className={`transition-colors duration-300 ${isLight ? "text-slate-600 hover:text-black" : "text-gray-300 hover:text-white"}`}
+            >
+              Gallery
             </Link>
 
             {/* CTA BUTTON */}

@@ -7,11 +7,13 @@ import Service from "./pages/Service";
 import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
 import FaqPage from "./pages/FaqPage";
+import Gallery from "./pages/Gallery";
 import Lenis from "lenis";
 import Footer from "./components/Footer";
 import Loader from "./components/Loader";
 import WelcomePopup from "./components/WelcomePopup";
 import ScrollToTop from "./components/ScrollToTop";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 function App() {
   const [phase, setPhase] = useState("loading");
@@ -32,17 +34,29 @@ function App() {
     });
     window.lenis = lenis;
 
+    lenis.on("scroll", ScrollTrigger.update);
+
     function raf(time) {
       lenis.raf(time);
       requestAnimationFrame(raf);
     }
 
     requestAnimationFrame(raf);
+
     return () => {
       window.lenis = null;
       lenis.destroy();
     };
   }, []);
+
+  useEffect(() => {
+    if (!window.lenis) return;
+    if (phase === "ready") {
+      window.lenis.start();
+    } else {
+      window.lenis.stop();
+    }
+  }, [phase]);
 
   return (
     <>
@@ -63,6 +77,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/faq" element={<FaqPage />} />
+          <Route path="/gallery" element={<Gallery />} />
         </Routes>
       </section>
       <Footer />

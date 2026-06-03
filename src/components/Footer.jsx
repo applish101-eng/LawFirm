@@ -31,9 +31,6 @@ const Footer = () => {
     if (name === "terms" && checked) setSubmitted(false);
     if (submitError) setSubmitError("");
 
-    // =========================
-    // REALTIME VALIDATION
-    // =========================
     let error = "";
 
     if (name === "name") {
@@ -100,7 +97,6 @@ Message: ${message}
 
     window.open(url, "_blank");
 
-    // RESET
     setFormData({
       name: "",
       phone: "",
@@ -115,9 +111,7 @@ Message: ${message}
   return (
     <>
       <section className="w-full bg-black">
-        {/* FORM SECTION */}
-        <div
-          id="forum"
+        <div id="forum"
           className="w-full bg-black flex flex-col p-6 gap-3 lg:gap-0"
         >
           <div className="w-full flex items-center justify-between">
@@ -142,9 +136,7 @@ Message: ${message}
             onSubmit={handleSubmit}
             className="w-full flex flex-col gap-4 mt-6"
           >
-            {/* NAME + PHONE */}
             <div className="flex flex-col sm:flex-row gap-4 w-full">
-              {/* NAME */}
               <div className="w-full sm:w-1/2">
                 <input
                   name="name"
@@ -160,7 +152,6 @@ Message: ${message}
                 )}
               </div>
 
-              {/* PHONE */}
               <div className="w-full sm:w-1/2">
                 <input
                   name="phone"
@@ -177,7 +168,6 @@ Message: ${message}
               </div>
             </div>
 
-            {/* SUBJECT */}
             <div className="w-full">
               <textarea
                 name="subject"
@@ -192,7 +182,6 @@ Message: ${message}
               )}
             </div>
 
-            {/* MESSAGE */}
             <textarea
               name="message"
               value={formData.message}
@@ -201,7 +190,6 @@ Message: ${message}
               className="text-white text-4xl sm:text-2xl placeholder:text-gray-500 border-b border-gray-600 h-40 lg:h-40 sm:h-80 pb-6 pt-6 focus:outline-none focus:ring-0"
             ></textarea>
 
-            {/* TERMS + BUTTON */}
             <div className="w-full flex flex-col lg:flex-row items-start justify-between gap-4 mt-6">
               <div className="flex flex-col items-start gap-4 mt-4">
                 <div className="flex items-center gap-6 lg:gap-3">
@@ -254,7 +242,7 @@ Message: ${message}
             </div>
           </form>
         </div>
-        <div className="relative w-full mt-60  bg-primary-700 border-t rounded-t-lg flex flex-col items-center justify-center">
+        <div className="relative w-full bg-primary-700 border-t rounded-t-lg flex flex-col items-center justify-center mt-60">
           <img
             src={LogoHead}
             alt="Liberty Legal Service & Research Center logo Advocate Meera Maharjan"

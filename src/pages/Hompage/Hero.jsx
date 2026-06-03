@@ -1,40 +1,95 @@
-import React from "react";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HeroImage from "../../assets/HeroImage.png";
-import { ArrowRight, SectionIcon } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Send } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/Button";
+
+gsap.registerPlugin(ScrollTrigger);
+
 const Hero = () => {
   const navigate = useNavigate();
+  const containerRef = useRef(null);
+  const imageRef = useRef(null);
+  const headingRef = useRef(null);
+  const statsRef = useRef(null);
+  const ctaRef = useRef(null);
+  const taglineRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        defaults: { ease: "power4.out", duration: 1.4 },
+      });
+
+      tl.fromTo(
+        imageRef.current,
+        { scale: 1.08 },
+        { scale: 1, duration: 2, ease: "expo.out" },
+      )
+        .fromTo(
+          headingRef.current,
+          { y: 40, opacity: 0 },
+          { y: 0, opacity: 1 },
+          "-=1.4",
+        )
+        .fromTo(
+          taglineRef.current,
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1 },
+          "-=0.8",
+        )
+        .fromTo(
+          statsRef.current?.children,
+          { y: 24, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1, stagger: 0.12 },
+          "-=0.6",
+        )
+        .fromTo(
+          ctaRef.current?.children,
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1, stagger: 0.1 },
+          "-=0.6",
+        );
+
+      ScrollTrigger.create({
+        trigger: containerRef.current,
+        start: "top top",
+        end: "bottom top",
+        onUpdate: (self) => {
+          gsap.set(imageRef.current, {
+            scale: 1 + (1 - self.progress) * 0.08,
+          });
+        },
+      });
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <>
-      <section className="relative w-full h-screen overflow-hidden">
-        {/* ===============================
-        BACKGROUND LAYER
-      =============================== */}
-        <img
-          src={HeroImage}
-          alt="Advocate Meera Maharjan Liberty Legal Service law firm Kathmandu Nepal"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+      <section ref={containerRef} className="relative w-full h-screen overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden">
+          <img
+            ref={imageRef}
+            src={HeroImage}
+            alt="Advocate Meera Maharjan Liberty Legal Service law firm Kathmandu Nepal"
+            className="absolute inset-0 w-full h-full object-cover will-change-transform"
+          />
+        </div>
 
-        {/* ===============================
-        GRADIENT OVERLAY LAYER
-      =============================== */}
-        {/* <div className="absolute inset-0 bg-gradient-to-b from-black via-black/0 to-black z-10" /> */}
         <div className="absolute inset-0 z-10 bg-linear-180 from-black to-40%"></div>
         <div className="absolute inset-0 z-10 bg-linear-15 from-black to-60%"></div>
 
-        {/* ===============================
-        CONTENT LAYER
-        (ANCHORED SYSTEM)
-      =============================== */}
         <div className="relative z-20 h-full flex flex-col justify-between px-6 pt-25 pb-10">
-          {/* ===========================
-          TOP RIGHT CONTENT
-        =========================== */}
           <div className="sm:flex justify-end hidden">
-            <p className="max-w-md text-right text-white text-sm font-light font-secondary leading-relaxed">
+            <p
+              ref={taglineRef}
+              className="max-w-md text-right text-white text-sm font-light font-secondary leading-relaxed"
+            >
               Led by Advocate Meera Maharjan, Liberty Legal Service & Research
               Center provides experienced legal counsel, strategic advocacy, and
               research driven solutions for individuals, communities, and
@@ -42,13 +97,11 @@ const Hero = () => {
             </p>
           </div>
 
-          {/* ===========================
-          BOTTOM CONTENT (PINNED)
-        =========================== */}
           <div className="flex flex-col gap-5 h-full justify-end">
-            {/* -------- STATS ROW -------- */}
-            <div className="hidden sm:grid lg:flex gap-8 lg:gap-16 sm:grid-cols-2 sm:w-fit items-start">
-              {/* STAT 1 */}
+            <div
+              ref={statsRef}
+              className="hidden sm:grid lg:flex gap-8 lg:gap-16 sm:grid-cols-2 sm:w-fit items-start"
+            >
               <div className="flex flex-col gap-2 text-left sm:col-span-2 lg:col-span-1">
                 <h2 className="text-5xl font-light text-white font-secondary">
                   98%
@@ -56,7 +109,6 @@ const Hero = () => {
                 <p className="text-sm text-white/80">Client Satisfaction</p>
               </div>
 
-              {/* STAT 2 */}
               <div className="flex flex-col gap-2 text-left">
                 <h2 className="text-5xl font-light text-white font-secondary">
                   1,146+
@@ -64,7 +116,6 @@ const Hero = () => {
                 <p className="text-sm text-white/80">Cases Resolved</p>
               </div>
 
-              {/* STAT 3 */}
               <div className="flex flex-col gap-2 text-left">
                 <h2 className="text-5xl font-light text-white font-secondary">
                   20+
@@ -73,15 +124,16 @@ const Hero = () => {
               </div>
             </div>
 
-            {/* -------- CTA + HEADING -------- */}
-            <div className="flex  flex-col sm:flex-row sm:items-end gap-4 justify-between">
-              {/* HEADING */}
-              <div className="flex flex-col gap-2">
-                <h1 className="max-w-4xl lg:max-w-3xl sm:text-5xl text-2xl  font-normal text-white leading-tight font-secondary ">
+            <div className="flex flex-col sm:flex-row sm:items-end gap-4 justify-between">
+              <div className="flex flex-col gap-2 overflow-hidden">
+                <h1
+                  ref={headingRef}
+                  className="max-w-4xl lg:max-w-3xl sm:text-5xl text-2xl font-normal text-white leading-tight font-secondary"
+                >
                   Trusted legal guidance in Lalitpur for the lives that matter
                   most.
                 </h1>
-                <p className="max-w-md  text-white text-[12px] font-light font-secondary leading-relaxed sm:hidden">
+                <p className="max-w-md text-white text-[12px] font-light font-secondary leading-relaxed sm:hidden">
                   Led by Advocate Meera Maharjan, Liberty Legal Service &
                   Research Center provides experienced legal counsel, strategic
                   advocacy, and research driven solutions for individuals,
@@ -89,9 +141,7 @@ const Hero = () => {
                 </p>
               </div>
 
-              {/* CTA */}
-              <div className="flex flex-col gap-4">
-                {/* BOOK CONSULTATION — MOBILE ONLY */}
+              <div ref={ctaRef} className="flex flex-col gap-4">
                 <Button
                   className="flex justify-between"
                   width="full"
@@ -111,7 +161,6 @@ const Hero = () => {
                   Book Consultation
                 </Button>
 
-                {/* OUR STORY */}
                 <Button
                   width="fit"
                   variant="secondary"
@@ -119,8 +168,7 @@ const Hero = () => {
                   className="
       self-end
       flex
-     
- 
+
       sm:bg-white/10
       sm:text-white
       sm:border-white/20
@@ -148,7 +196,6 @@ const Hero = () => {
                   Our Story
                 </Button>
 
-                {/* TEXT */}
                 <p className="text-white/80 text-md hidden sm:block font-light font-secondary">
                   15+ years of legal excellence in Nepal
                 </p>
@@ -157,24 +204,23 @@ const Hero = () => {
           </div>
         </div>
       </section>
-      {/* MOBILE STATS BELOW HERO */}
-      <div className="sm:hidden bg-black h-screen text-white px-10 py-10 grid grid-cols-2 gap-8 place-content-center ">
-        <div className="flex flex-col gap-2 ">
+      <div className="sm:hidden bg-black h-screen text-white px-10 py-10 grid grid-cols-2 gap-8 place-content-center">
+        <div className="flex flex-col gap-2">
           <h2 className="text-4xl font-light font-secondary">98%</h2>
           <p className="text-sm text-white/80">Client Satisfaction</p>
         </div>
 
-        <div className="flex flex-col gap-2 ">
+        <div className="flex flex-col gap-2">
           <h2 className="text-4xl font-light font-secondary">1,146+</h2>
           <p className="text-sm text-white/80">Cases Resolved</p>
         </div>
 
-        <div className="flex flex-col gap-2 ">
+        <div className="flex flex-col gap-2">
           <h2 className="text-4xl font-light font-secondary">20+</h2>
           <p className="text-sm text-white/80">Practice Areas</p>
         </div>
 
-        <div className="flex flex-col gap-2 ">
+        <div className="flex flex-col gap-2">
           <h2 className="text-4xl font-light font-secondary">15+</h2>
           <p className="text-sm text-white/80">Years of Excellence</p>
         </div>

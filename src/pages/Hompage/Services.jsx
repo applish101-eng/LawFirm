@@ -87,9 +87,20 @@ const Services = () => {
   const pinContainerRef = useRef(null);
   const individualsRef = useRef(null);
   const companiesRef = useRef(null);
+  const bottomImageRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      ScrollTrigger.create({
+        trigger: bottomImageRef.current,
+        start: "top bottom",
+        end: "bottom top",
+        onUpdate: (self) => {
+          gsap.set(bottomImageRef.current, {
+            scale: 1 + (1 - self.progress) * 0.05,
+          });
+        },
+      });
       // Timeline to handle cross-fading and pinning panels
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -272,6 +283,7 @@ const Services = () => {
         {/* RIGHT IMAGE CARD WITH OVERLAY */}
         <div className="relative rounded-md overflow-hidden min-h-[450px] lg:min-h-[500px] shadow-sm">
           <img
+            ref={bottomImageRef}
             src={ServicesImage}
             alt="Legal services Kathmandu Nepal Advocate Meera Maharjan Liberty Legal"
             className="w-full h-full object-cover"

@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import SEO from "../../components/SEO";
 import Button from "../../components/Button";
 import PageSection from "../../components/PageSection";
 import Container from "../../components/Container";
 
-// ==========================================
-// FAQ CONTENT DATA ARRAY
-// ==========================================
+gsap.registerPlugin(ScrollTrigger);
+
 const faqData = [
   {
     question: "What should I consider when choosing a law firm in Nepal?",
@@ -43,10 +44,39 @@ const faqData = [
 
 const Faq = () => {
   const [openIndex, setOpenIndex] = useState(null);
+  const sectionRef = useRef(null);
+  const leftRef = useRef(null);
+  const rightRef = useRef(null);
 
   const toggle = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 95%",
+          toggleActions: "play none none reverse",
+        },
+        defaults: { ease: "power4.out", duration: 1.2 },
+      });
+
+      tl.fromTo(
+        leftRef.current,
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1.4 },
+      ).fromTo(
+        rightRef.current?.children,
+        { y: 24, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1, stagger: 0.1 },
+        "-=0.8",
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
     <>
@@ -56,21 +86,20 @@ const Faq = () => {
         canonical="https://libertylegalnepal.com/faq"
       />
       <PageSection
+        ref={sectionRef}
         variant="large"
-        className="relative bg-[#F5F5F5] select-none "
+        className="relative bg-[#F5F5F5] select-none"
       >
         <Container className="flex flex-col gap-6 lg:gap-10">
-          {/* SUBHEADER TAG */}
           <h1 className="text-sm lg:text-base font-primary text-black uppercase tracking-wider font-semibold text-center lg:text-left shrink-0">
             Frequently Asked Questions
           </h1>
 
-          {/* MAIN SPLIT GRID CONTAINER */}
           <div className="grid grid-cols-1 lg:grid-cols-[42%_1fr] gap-10 lg:gap-16 w-full">
-            {/* ======================================================
-              LEFT COLUMN: HERO TEXT & DESKTOP CALL-TO-ACTION
-          ====================================================== */}
-            <div className="flex flex-col justify-between gap-8 lg:pb-4 shrink-0">
+            <div
+              ref={leftRef}
+              className="flex flex-col justify-between gap-8 lg:pb-4 shrink-0"
+            >
               <div className="flex flex-col gap-4">
                 <h2 className="text-2xl sm:text-4xl lg:text-5xl text-center lg:text-left font-secondary font-medium text-black leading-tight tracking-tight">
                   Questions we frequently receive from clients & businesses
@@ -84,7 +113,6 @@ const Faq = () => {
                 </p>
               </div>
 
-              {/* CTA Option: Shows on large viewports */}
               <div className="hidden lg:flex flex-col gap-5 items-start">
                 <div>
                   <h3 className="text-xl lg:text-2xl font-medium text-black">
@@ -113,10 +141,7 @@ const Faq = () => {
               </div>
             </div>
 
-            {/* ======================================================
-              RIGHT COLUMN: ACCORDION LIST
-          ====================================================== */}
-            <div className="flex flex-col gap-4">
+            <div ref={rightRef} className="flex flex-col gap-4">
               {faqData.map((item, index) => {
                 const isOpen = openIndex === index;
 
@@ -129,7 +154,6 @@ const Faq = () => {
                         : "shadow-sm hover:border-black/10"
                     }`}
                   >
-                    {/* ACCORDION TRIGGER */}
                     <button
                       onClick={() => toggle(index)}
                       className="w-full flex items-center justify-between gap-4 text-left group cursor-pointer"
@@ -155,7 +179,6 @@ const Faq = () => {
                       </div>
                     </button>
 
-                    {/* ACCORDION TEXT EXPANSION WINDOW */}
                     <div
                       className={`overflow-hidden transition-all duration-300 ease-in-out ${
                         isOpen
@@ -171,9 +194,7 @@ const Faq = () => {
                 );
               })}
 
-              {/* CTA Option fallback: Shows on mobile viewports below items */}
-
-              <div className="lg:hidden  lg:flex flex-col gap-5 mt-6 items-start">
+              <div className="lg:hidden lg:flex flex-col gap-5 mt-6 items-start">
                 <div>
                   <h3 className="text-xl lg:text-2xl font-medium text-black">
                     Need more information?

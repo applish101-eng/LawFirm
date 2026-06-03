@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import SEO from "../components/SEO";
 import Button from "../components/Button";
 import PageSection from "../components/PageSection";
 import Container from "../components/Container";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const faqData = [
   {
@@ -40,10 +44,39 @@ const faqData = [
 
 const FaqPage = () => {
   const [openIndex, setOpenIndex] = useState(null);
+  const sectionRef = useRef(null);
+  const leftRef = useRef(null);
+  const rightRef = useRef(null);
 
   const toggle = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+        defaults: { ease: "power4.out", duration: 1.2 },
+      });
+
+      tl.fromTo(
+        leftRef.current,
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1.4 },
+      ).fromTo(
+        rightRef.current?.children,
+        { y: 24, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1, stagger: 0.1 },
+        "-=0.8",
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
     <>
@@ -53,6 +86,7 @@ const FaqPage = () => {
         canonical="https://libertylegalnepal.com/faq"
       />
       <PageSection
+        ref={sectionRef}
         variant="large"
         className="relative bg-[#F5F5F5] select-none min-h-screen"
       >
@@ -62,7 +96,10 @@ const FaqPage = () => {
           </h1>
 
           <div className="grid grid-cols-1 lg:grid-cols-[42%_1fr] gap-10 lg:gap-16 w-full">
-            <div className="flex flex-col justify-between gap-8 lg:pb-4 shrink-0">
+            <div
+              ref={leftRef}
+              className="flex flex-col justify-between gap-8 lg:pb-4 shrink-0"
+            >
               <div className="flex flex-col gap-4">
                 <h2 className="text-2xl sm:text-4xl lg:text-5xl text-center lg:text-left font-secondary font-medium text-black leading-tight tracking-tight">
                   Questions we frequently receive from clients & businesses
@@ -104,7 +141,7 @@ const FaqPage = () => {
               </div>
             </div>
 
-            <div className="flex flex-col gap-4">
+            <div ref={rightRef} className="flex flex-col gap-4">
               {faqData.map((item, index) => {
                 const isOpen = openIndex === index;
 

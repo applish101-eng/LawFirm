@@ -2,9 +2,10 @@
 
 ## Stack
 
-- React 19, Vite 8, Tailwind CSS v4, react-router v7, GSAP, Lenis, lucide-react, react-helmet-async
+- React 19, Vite 8, Tailwind CSS v4, react-router v7, GSAP 3, Lenis 1, lucide-react, react-helmet-async
 - Plain JSX (no TypeScript)
 - Tailwind v4 via `@tailwindcss/vite` plugin — **no** `tailwind.config.js` or `postcss.config.js`
+- Bundler: rolldown (Vite 8 default)
 
 ## Commands
 
@@ -15,55 +16,66 @@ npm run lint     # ESLint (js.configs.recommended + react-hooks + react-refresh)
 npm run preview  # Preview production build
 ```
 
-No test framework is installed.
+No test framework installed.
 
 ## Tailwind v4 specifics
 
-- Config is done via `@theme inline` directives in `src/index.css` — NOT via `tailwind.config.js`
+- Config via `@theme inline` in `src/index.css` — no config file
 - Theme tokens: `--font-primary`, `--font-secondary`, `--color-primary-{500,600,700}`, `--ease-fluid`, `--ease-snappy`
-- No custom utility classes exist in CSS anymore; use raw Tailwind classes
+- No custom utility classes; use raw Tailwind classes only
 
-## Architecture
+## Routes
 
+All routes live in `App.jsx`. See `src/pages/` for page components.
+
+| Path | Component | Notes |
+|------|-----------|-------|
+| `/` | Home | Hero + Services (pinned) + Faq |
+| `/about` | About | Renders its own Navbar → double navbar bug |
+| `/service` | Service | Hero section + reuses Hompage/Services |
+| `/contact` | Contact | |
+| `/privacy` | Privacy | |
+| `/faq` | FaqPage | Standalone FAQ page |
+| `/gallery` | Gallery | Wraps FirmGallery component |
+
+## Architecture notes
+
+`src/` layout:
 ```
 src/
-  main.jsx          # Entry point, wraps App in BrowserRouter + HelmetProvider + StrictMode
-  App.jsx           # Lenis init, Cursor, Navbar (layout), Routes, Footer
-  index.css         # Tailwind v4 @theme + custom cursor CSS
-  components/
-    Button.jsx      # Reusable button (variant, size, width, iconLeft/iconRight)
-    Container.jsx   # Simple max-width wrapper
-    Cursor.jsx      # GSAP-powered custom cursor (mix-blend-difference)
-    Footer.jsx      # Contact form (sends via WhatsApp) + links + privacy
-    Navbar.jsx      # Fixed navbar with hide-on-scroll-down, mobile overlay
-    PageSection.jsx # Section wrapper (variant: hero/default/large/cta)
-    SEO.jsx         # react-helmet-async meta tags (title, description, canonical, OG)
+  main.jsx          BrowserRouter > HelmetProvider > App
+  App.jsx           Lenis init, phase gating (loader→welcome→ready), Navbar, Routes, Footer
+  index.css         @import "tailwindcss" + @theme inline
+  components/       Reusable UI (Button, Container, Footer, Navbar, PageSection, SEO, ScrollToTop, Loader, WelcomePopup, FirmGallery)
   pages/
-    Home.jsx        # Hero + Services + Faq
-    About.jsx       # Section01..Section04 + its own Navbar (rendered twice on page)
-    Service.jsx     # Full hero section + Services listing
-    Contact.jsx     # Contact info + social links
-    Privacy.jsx     # Stub ("Privacy")
-    Hompage/        # Intentionally misspelled directory name
-      Hero.jsx      # Full-bleed image, gradient overlays, stats, CTA
-      Services.jsx  # Service listings for individuals & companies
-      Cases.jsx     # Case study cards (not routed in current App)
-      Faq.jsx       # FAQ accordion items
-    About/          # Section components for About page
+    Home.jsx
+    About.jsx       imports its own Navbar + Section01..Section04
+    Service.jsx     hero + reuses Hompage/Services
+    Contact.jsx
+    Privacy.jsx
+    FaqPage.jsx
+    Gallery.jsx
+    Hompage/        (typo preserved) Hero, Services, Cases, Faq — used by Home page
+    About/          Section01..Section04
 ```
+
+- **Double navbar on /about**: About.jsx renders `<Navbar />` while App.jsx also renders it globally.
+- **Hompage directory**: intentionally misspelled (`Hompage/` not `Homepage/`); home-page section components live here.
+- **ScrollToTop**: runs on every route change via `useLocation`, uses both `window.scrollTo` and `window.lenis.scrollTo`.
 
 ## Key conventions
 
 - **Fonts**: `font-primary` (Playfair Display, serif) for labels; `font-secondary` (Plus Jakarta Sans, sans-serif) for body
-- **Buttons**: use `<Button variant="primary|secondary|outline|ghost">` with props `size`, `width`, `iconRight`, `iconLeft`
-- **Layout helpers**: `<Container>` (max-width wrapper), `<PageSection variant="hero|default|large|cta">`
-- **SEO**: use `<SEO title="..." description="..." canonical="..." />` on every page
-- **Navigation**: Navbar is rendered in App.jsx layout wrapping Routes. About.jsx also renders its own Navbar (causes a double Navbar on /about)
-- **Custom cursor**: `body { cursor: none }` inside `@media (pointer: fine)` — all interactive elements need `cursor-pointer`
-- **Smooth scroll**: Lenis (`duration: 2, smoothWheel: true`) initialized in App.jsx; exposed via `window.lenis`
-- **Contact form**: in Footer, submits via WhatsApp link to `+977 9851227006`
-- **Directory name quirk**: homepage sections live in `Hompage/` (typo preserved)
+- **Buttons**: use `<Button variant="primary|secondary|outline|ghost">` with props `size`, `width`, `iconRight`, `iconLeft`, `responsiveVisibility`, `iconRightClassName`
+- **Layout**: `<Container>` (max-width wrapper), `<PageSection variant="hero|default|large|cta">`
+- **SEO**: `<SEO title="..." description="..." canonical="..." />` on every page
+- **Smooth scroll**: Lenis initialized in App.jsx; exposed globally as `window.lenis`. Use `window.lenis.scrollTo(el, { offset })` for programmatic scroll. ScrollToTop also uses it.
+- **Contact form**: In Footer. Submits via WhatsApp link to `+977 9851227006`. Does NOT collect emails. Checkbox links to Privacy Policy.
+- **Loader + WelcomePopup**: App.jsx phases through `loading` → `welcome` → `ready` on first visit.
+- **Animation pattern**: GSAP with `gsap.context()` + `ctx.revert()` cleanup inside `useEffect`. ScrollTrigger registered per-file with `gsap.registerPlugin(ScrollTrigger)`. Preferred easing: `power4.out`, durations 1.2–1.6s.
+- **Navbar background**: Home page uses black-at-top / light-after-scroll; all other pages always use light `bg-[#F5F5F5]`.
+- **Unused React imports**: Pre-existing lint `no-unused-vars` errors on `import React` throughout — not worth fixing.
 
 ## MCP
 
-- Figma MCP configured in `opencode.json` using `figma-developer-mcp` with `--stdio` transport. Requires `FIGMA_API_KEY` env var.
+Figma MCP configured in `opencode.json` via `figma-developer-mcp` with `--stdio` transport. Requires `FIGMA_API_KEY` env var.

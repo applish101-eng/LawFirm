@@ -9,7 +9,7 @@ import Section04 from "./About/Section04";
 
 const About = () => {
   return (
-    <div className="w-full h-full ">
+    <div className="w-full h-full overflow-hidden">
       <SEO
         title="Advocate Meera Maharjan | About Liberty Legal Service & Research Center Nepal"
         description="Learn about Advocate Meera Maharjan and Liberty Legal Service & Research Center based in Kathmandu, Nepal. Expert legal counsel with years of experience."
