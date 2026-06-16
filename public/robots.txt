@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://libertylegal.vercel.app/sitemap.xml
