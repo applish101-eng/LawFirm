@@ -186,13 +186,13 @@ const Services = () => {
   };
 
   return (
-    <div id="services" className="w-full bg-[#F5F5F5] py-20 ">
+    <div id="services" className="w-full bg-[#F5F5F5] py-0 sm:20 ">
       {/* ======================================================
           PINNED VIEWPONT CONTAINER (H-SCREEN LOCK)
       ====================================================== */}
       <section
         ref={pinContainerRef}
-        className="w-full h-screen overflow-hidden flex flex-col justify-center px-6 py-20"
+        className="w-full h-screen overflow-hidden flex flex-col justify-center px-6 pt-20"
       >
         {/* TOP ROW LAYOUT */}
         <div className="flex flex-col justify-between h-full w-full">

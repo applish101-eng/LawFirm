@@ -20,8 +20,17 @@ const Navbar = () => {
       const currentScrollY = window.scrollY;
       setIsPastHero(currentScrollY > window.innerHeight - 50);
 
-      // Prevent the navbar from hiding if the mobile menu is active
-      if (menuOpen) return;
+      // Prevent the navbar from toggling if mobile menu is open or an input is focused
+      // (avoids navbar popping up when virtual keyboard opens on mobile)
+      const activeEl = document.activeElement;
+      const isInputFocused =
+        activeEl &&
+        (activeEl.tagName === "INPUT" || activeEl.tagName === "TEXTAREA");
+
+      if (menuOpen || isInputFocused) {
+        setLastScrollY(currentScrollY);
+        return;
+      }
 
       // Avoid hiding quirks at the very top of the page
       if (currentScrollY < 10) {
@@ -86,7 +95,7 @@ const Navbar = () => {
         </div>
 
         {/* Links Container Centered Perfectly */}
-        <div className="flex flex-col items-start justify-center mt-10 gap-10  w-screen px-6">
+        <div className="flex flex-col items-start justify-center mt-10 gap-10 w-full px-6">
           <Link
             to="/about"
             className="text-slate-600 w-auto text-5xl font-medium font-secondary hover:text-white transition-colors"

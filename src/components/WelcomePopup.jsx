@@ -54,11 +54,11 @@ const WelcomePopup = ({ isVisible, onClose }) => {
           <X className="w-4 h-4 text-neutral-700" />
         </button>
 
-        <div className="w-full sm:w-[240px] lg:w-[280px] h-52 sm:h-auto bg-gradient-to-br from-neutral-100 to-neutral-200 flex-shrink-0 overflow-hidden">
+        <div className="w-full sm:w-[240px] lg:w-[280px] h-64 sm:h-auto bg-gradient-to-br from-neutral-100 to-neutral-200 flex-shrink-0 overflow-hidden">
           <img
             src={AdvocateMeera}
             alt="Advocate Meera Maharjan — Founder of Liberty Legal Service & Research Center"
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full object-cover object-top sm:object-cover sm:object-top"
           />
         </div>
 

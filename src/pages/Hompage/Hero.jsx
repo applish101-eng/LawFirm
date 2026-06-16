@@ -71,7 +71,10 @@ const Hero = () => {
 
   return (
     <>
-      <section ref={containerRef} className="relative w-full h-screen overflow-hidden">
+      <section
+        ref={containerRef}
+        className="relative w-full h-[90vh] sm:h-screen  overflow-hidden"
+      >
         <div className="absolute inset-0 overflow-hidden">
           <img
             ref={imageRef}
@@ -93,7 +96,7 @@ const Hero = () => {
               Led by Advocate Meera Maharjan, Liberty Legal Service & Research
               Center provides experienced legal counsel, strategic advocacy, and
               research driven solutions for individuals, communities, and
-              organizations across Nepal.
+              organizations across Nepal and beyond.
             </p>
           </div>
 
@@ -130,14 +133,13 @@ const Hero = () => {
                   ref={headingRef}
                   className="max-w-4xl lg:max-w-3xl sm:text-5xl text-2xl font-normal text-white leading-tight font-secondary"
                 >
-                  Trusted legal guidance in Lalitpur for the lives that matter
-                  most.
+                  Trusted legal guidance for all the lives that matter
                 </h1>
                 <p className="max-w-md text-white text-[12px] font-light font-secondary leading-relaxed sm:hidden">
                   Led by Advocate Meera Maharjan, Liberty Legal Service &
                   Research Center provides experienced legal counsel, strategic
                   advocacy, and research driven solutions for individuals,
-                  communities, and organizations across Nepal.
+                  communities, and organizations across Nepal and beyond.
                 </p>
               </div>
 
@@ -162,12 +164,14 @@ const Hero = () => {
                 </Button>
 
                 <Button
-                  width="fit"
+                  width="full"
                   variant="secondary"
                   size="lg"
                   className="
+      sm:w-fit
       self-end
       flex
+      justify-between
 
       sm:bg-white/10
       sm:text-white
@@ -197,7 +201,7 @@ const Hero = () => {
                 </Button>
 
                 <p className="text-white/80 text-md hidden sm:block font-light font-secondary">
-                  15+ years of legal excellence in Nepal
+                  15+ years of excellence in Nepal
                 </p>
               </div>
             </div>

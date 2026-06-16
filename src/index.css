@@ -2,6 +2,10 @@
 
 @import "tailwindcss";
 
+html {
+  overflow-x: hidden;
+}
+
 /* ✅ IMPORTANT: use inline so Tailwind generates utilities */
 @theme inline {
   --font-primary: "Playfair Display", serif;
@@ -16,5 +20,7 @@
 
   --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
   --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
+
+  --container-8xl: 90rem;
 }
 

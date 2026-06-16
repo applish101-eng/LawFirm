@@ -87,8 +87,7 @@ const Faq = () => {
       />
       <PageSection
         ref={sectionRef}
-        variant="large"
-        className="relative bg-[#F5F5F5] select-none"
+        className="relative bg-[#F5F5F5] select-none py-0 sm:py-24"
       >
         <Container className="flex flex-col gap-6 lg:gap-10">
           <h1 className="text-sm lg:text-base font-primary text-black uppercase tracking-wider font-semibold text-center lg:text-left shrink-0">
