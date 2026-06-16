@@ -297,12 +297,14 @@ Message: ${message}
                 >
                   measmeerasms@gmail.com
                 </Link>
-                <Link
-                  to="/contact"
+                <a
+                  href="https://www.facebook.com/profile.php?id=100083169340565"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-slate-300 text-xl font-secondary hover:text-white transition-colors duration-300"
                 >
                   Facebook
-                </Link>
+                </a>
               </div>
             </div>
           </div>
@@ -368,12 +370,14 @@ Message: ${message}
                 <p className="text-white text-lg font-secondary italic mt-4">
                   Follow our journey and community activities
                 </p>
-                <Link
-                  to="/contact"
+                <a
+                  href="https://www.facebook.com/profile.php?id=100083169340565"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-slate-300 text-xl font-secondary hover:text-white transition-colors duration-300"
                 >
                   Facebook
-                </Link>
+                </a>
               </div>
               <div className="w-full h-auto flex flex-col items-end justify-end gap-4 mt-2">
                 <p className="text-white text-3xl font-medium font-secondary mt-6">

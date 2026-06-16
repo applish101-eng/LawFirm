@@ -92,7 +92,7 @@ const Contact = () => {
                   Social Network
                 </span>
                 <a
-                  href="https://facebook.com"
+                  href="https://www.facebook.com/profile.php?id=100083169340565"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 font-light text-2xl md:text-3xl lg:text-4xl tracking-tight hover:text-blue-600 transition-colors duration-300 group"
