@@ -211,7 +211,7 @@ const Privacy = () => {
       <SEO
         title="Privacy Policy | Liberty Legal Service & Research Center Nepal"
         description="Liberty Legal's privacy policy explains how we handle your data. We only collect your name and phone number via WhatsApp — no email, no server-side storage."
-        canonical="https://libertylegalnepal.com/privacy"
+        canonical="https://libertylegal.com.np/privacy"
       />
 
       <PageSection variant="large" className="bg-[#F4F4F4] text-[#111111]">

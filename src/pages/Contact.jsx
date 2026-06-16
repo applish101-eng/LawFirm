@@ -44,7 +44,7 @@ const Contact = () => {
       <SEO
         title="Contact Liberty Legal | Law Firm in Kathmandu, Nepal | Advocate Meera Maharjan"
         description="Get in touch with Advocate Meera Maharjan at Liberty Legal Service & Research Center in Lalitpur, Nepal. Reach us by phone or email."
-        canonical="https://libertylegalnepal.com/contact"
+        canonical="https://libertylegal.com.np/contact"
       />
       <PageSection
         ref={containerRef}

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://libertylegalnepal.com/sitemap.xml
+Sitemap: https://libertylegal.com.np/sitemap.xml

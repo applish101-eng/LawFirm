@@ -7,7 +7,7 @@ const Gallery = () => {
       <SEO
         title="Gallery | Liberty Legal Service & Research Center | Advocate Meera Maharjan"
         description="Explore the memories and milestones of Liberty Legal Service & Research Center — a visual archive of advocacy, community, and legal excellence in Nepal."
-        canonical="https://libertylegalnepal.com/gallery"
+        canonical="https://libertylegal.com.np/gallery"
       />
       <FirmGallery />
     </>

@@ -13,7 +13,7 @@ const About = () => {
       <SEO
         title="Advocate Meera Maharjan | About Liberty Legal Service & Research Center Nepal"
         description="Learn about Advocate Meera Maharjan and Liberty Legal Service & Research Center based in Kathmandu, Nepal. Expert legal counsel with years of experience."
-        canonical="https://libertylegalnepal.com/about"
+        canonical="https://libertylegal.com.np/about"
       />
       <Navbar />
       <Section01 />

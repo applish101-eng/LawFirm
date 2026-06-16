@@ -111,7 +111,8 @@ Message: ${message}
   return (
     <>
       <section className="w-full bg-black">
-        <div id="forum"
+        <div
+          id="forum"
           className="w-full bg-black flex flex-col p-6 gap-3 lg:gap-0"
         >
           <div className="w-full flex items-center justify-between">
