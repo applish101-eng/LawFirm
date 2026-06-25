@@ -83,7 +83,7 @@ const Faq = () => {
       <SEO
         title="Liberty Legal Service & Research Center | Advocate Meera Maharjan"
         description="Find answers to common legal questions in Nepal. Learn about divorce, company registration, property disputes, and more from Advocate Meera Maharjan."
-        canonical="https://libertylegal.com.np/faq"
+        canonical="https://libertylegal.vercel.app/faq"
       />
       <PageSection
         ref={sectionRef}

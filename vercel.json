@@ -1,6 +1,4 @@
 {
-  "name": "liberty-legal",
-  "alias": ["libertylegal.com.np", "www.libertylegal.com.np"],
   "rewrites": [{ "source": "/(.*)", "destination": "/" }],
   "headers": [
     {

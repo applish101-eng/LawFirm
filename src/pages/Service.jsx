@@ -54,7 +54,7 @@ const ServicesHero = () => {
       <SEO
         title="Legal Services Nepal | Corporate & Civil Law | Advocate Meera Maharjan"
         description="Full-service legal firm in Kathmandu, Nepal led by Advocate Meera Maharjan. Corporate law, civil litigation, criminal defense, property disputes, and more."
-        canonical="https://libertylegal.com.np/service"
+        canonical="https://libertylegal.vercel.app/service"
       />
       <PageSection
         ref={containerRef}

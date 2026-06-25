@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 
-const SITE_URL = "https://libertylegal.com.np";
+const SITE_URL = "https://libertylegal.vercel.app";
 const OG_IMAGE = `${SITE_URL}/logo-og.svg`;
 
 const SEO = ({ title, description, canonical }) => {
