@@ -67,7 +67,7 @@ const Section01 = () => {
         </div>
       </Container>
 
-      <div ref={imageRef} className="w-full mt-12 h-64 sm:h-96 overflow-hidden">
+      <div ref={imageRef} className="w-full mt-12 h-64 sm:h-96 lg:h-[32rem] overflow-hidden">
         <img
           src={Section01Service}
           alt="Advocate Meera Maharjan Liberty Legal Service law office Kathmandu Nepal"
