@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <>
       <SEO
-        title="Kathmandu Lawyer | Liberty Legal Service Nepal | Advocate Meera Maharjan"
+        title="Liberty Legal Service & Research Center | Law Firm in Kathmandu, Nepal"
         description="Trusted legal services in Nepal led by Advocate Meera Maharjan. Expert legal consultation in Kathmandu for individuals, businesses, and foreign investors."
         canonical="https://libertylegal.vercel.app/"
       />

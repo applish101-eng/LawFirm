@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowRight, ChevronDown } from "lucide-react";
-import SEO from "../../components/SEO";
 import Button from "../../components/Button";
 import PageSection from "../../components/PageSection";
 import Container from "../../components/Container";
@@ -80,11 +79,6 @@ const Faq = () => {
 
   return (
     <>
-      <SEO
-        title="Liberty Legal Service & Research Center | Advocate Meera Maharjan"
-        description="Find answers to common legal questions in Nepal. Learn about divorce, company registration, property disputes, and more from Advocate Meera Maharjan."
-        canonical="https://libertylegal.vercel.app/faq"
-      />
       <PageSection
         ref={sectionRef}
         className="relative bg-[#F5F5F5] select-none py-0 sm:py-24"
